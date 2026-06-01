@@ -14,6 +14,22 @@ HiveLogs é uma plataforma open source de observabilidade e analytics self-hoste
 | [docs/security-model.md](docs/security-model.md) | JWT, API Keys, rate limiting |
 | [docs/roadmap.md](docs/roadmap.md) | MVP 1, 2, 3 e Future |
 | [docs/adr/](docs/adr/) | Decisões arquiteturais |
+| [docs/techspecs/](docs/techspecs/) | Techspecs, tasks e shared-memory por feature |
+
+## Fluxo de feature (planning → techspec → tasks)
+
+```
+Nova feature
+  → planning.md              (dúvidas resolvidas)
+  → techspec.md              (status Approved; ADR se necessário)
+  → tasks/ + shared-memory.md
+  → branch feature/TS-NNN-slug
+  → 1 commit por task + atualizar shared-memory.md
+  → 1 PR único → main
+  → techspec status Implemented
+```
+
+Orquestração: skill **`hivelogs-feature-workflow`**. Detalhes: [docs/techspecs/README.md](docs/techspecs/README.md).
 
 ## Política de idiomas
 
@@ -99,6 +115,11 @@ Invoque pelo nome (`name` no frontmatter) ou descreva o cenário.
 | Skill | Use quando |
 |-------|------------|
 | `hivelogs-context` | Início de qualquer tarefa; carregar boundaries |
+| `hivelogs-feature-workflow` | Feature nova end-to-end; orquestração do fluxo |
+| `hivelogs-feature-planning` | Planejamento, dúvidas de negócio, `planning.md` |
+| `hivelogs-techspec` | Techspec por módulo; status Approved |
+| `hivelogs-task-breakdown` | Quebrar techspec em tasks + `shared-memory.md` |
+| `hivelogs-task-implement` | Implementar task; 1 commit; PR único ao final |
 | `hivelogs-adr` | Criar ou revisar decisão arquitetural |
 | `hivelogs-module-scaffold` | Novo app/package ou README de módulo |
 | `hivelogs-security-review` | Auth, chaves, ingestão, env, SDKs, PR sensível |
@@ -108,9 +129,13 @@ Invoque pelo nome (`name` no frontmatter) ou descreva o cenário.
 
 Copie de [docs/templates/](docs/templates/):
 
+- `feature-planning-template.md` → `docs/techspecs/TS-NNN/planning.md`
+- `techspec-template.md` → `docs/techspecs/TS-NNN/techspec.md`
+- `task-template.md` → `docs/techspecs/TS-NNN/tasks/TASK-NN.md`
+- `shared-memory-template.md` → `docs/techspecs/TS-NNN/shared-memory.md`
 - `adr-template.md` → `docs/adr/NNN-titulo.md`
 - `issue-template.md` → corpo de issue
-- `pr-description-template.md` → descrição de PR
+- `pr-description-template.md` → descrição de PR (1 PR por techspec)
 - `module-readme-template.md` → README de módulo
 
 ## Roadmap
@@ -132,4 +157,6 @@ Não são obrigatórias; o repo é autocontido.
 - [ ] Boundaries do módulo respeitados (`hivelogs-context`)
 - [ ] Sem vazamento de secrets (`hivelogs-security-review` se aplicável)
 - [ ] Escopo alinhado ao MVP (`hivelogs-mvp-scope` se feature nova)
+- [ ] Feature seguiu fluxo planning → techspec → tasks (`hivelogs-feature-workflow`)
+- [ ] `shared-memory.md` atualizado após implementação de task
 - [ ] Docs/ADR atualizados se decisão ou boundary mudou

@@ -23,6 +23,15 @@ alwaysApply: true
 - Não expandir escopo além do pedido
 - Dúvidas de regra de negócio → perguntar ao usuário
 
+## Features novas
+
+Fluxo obrigatório: **planning → techspec (Approved) → tasks → implementação**.
+
+- 1 commit por task; 1 PR por techspec
+- Ler `shared-memory.md` antes de cada task; atualizar após implementar
+- Skill orquestradora: `hivelogs-feature-workflow`
+- Detalhes: [docs/techspecs/README.md](../../docs/techspecs/README.md)
+
 ## Docs
 
 - Dev/ADR/skills: PT-BR | README raiz e docs de usuário: inglês
