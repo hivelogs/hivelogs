@@ -1,0 +1,107 @@
+# HiveLogs - Docker Compose (desenvolvimento local)
+#
+# Nesta fase, apenas o TimescaleDB está ativo.
+# Os serviços de aplicação (api, web, worker, mcp) serão habilitados
+# quando os projetos forem inicializados e os Dockerfiles forem adicionados.
+#
+# Uso:
+#   cd infra
+#   cp .env.example .env
+#   docker compose up timescaledb -d
+
+services:
+  timescaledb:
+    image: timescale/timescaledb:latest-pg16
+    container_name: hivelogs-timescaledb
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${TIMESCALEDB_USER:-hivelogs}
+      POSTGRES_PASSWORD: ${TIMESCALEDB_PASSWORD:-hivelogs}
+      POSTGRES_DB: ${TIMESCALEDB_DB:-hivelogs}
+    ports:
+      - "${TIMESCALEDB_PORT:-5432}:5432"
+    volumes:
+      - timescaledb_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${TIMESCALEDB_USER:-hivelogs} -d ${TIMESCALEDB_DB:-hivelogs}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    networks:
+      - hivelogs
+
+  # ---------------------------------------------------------------------------
+  # Placeholders — descomentar após inicializar apps e criar Dockerfiles
+  # ---------------------------------------------------------------------------
+
+  # api:
+  #   build:
+  #     context: ../apps/api
+  #     dockerfile: Dockerfile
+  #   container_name: hivelogs-api
+  #   restart: unless-stopped
+  #   depends_on:
+  #     timescaledb:
+  #       condition: service_healthy
+  #   environment:
+  #     ASPNETCORE_ENVIRONMENT: ${API_ASPNETCORE_ENVIRONMENT:-Development}
+  #     ConnectionStrings__Default: ${API_CONNECTION_STRING}
+  #     Jwt__Secret: ${API_JWT_SECRET}
+  #   ports:
+  #     - "${API_PORT:-8080}:8080"
+  #   networks:
+  #     - hivelogs
+
+  # web:
+  #   build:
+  #     context: ../apps/web
+  #     dockerfile: Dockerfile
+  #   container_name: hivelogs-web
+  #   restart: unless-stopped
+  #   depends_on:
+  #     - api
+  #   environment:
+  #     VITE_API_URL: ${WEB_VITE_API_URL:-http://localhost:8080}
+  #   ports:
+  #     - "${WEB_PORT:-5173}:5173"
+  #   networks:
+  #     - hivelogs
+
+  # worker:
+  #   build:
+  #     context: ../apps/worker
+  #     dockerfile: Dockerfile
+  #   container_name: hivelogs-worker
+  #   restart: unless-stopped
+  #   depends_on:
+  #     timescaledb:
+  #       condition: service_healthy
+  #   environment:
+  #     DOTNET_ENVIRONMENT: ${WORKER_DOTNET_ENVIRONMENT:-Development}
+  #     ConnectionStrings__Default: ${WORKER_CONNECTION_STRING}
+  #   networks:
+  #     - hivelogs
+
+  # mcp:
+  #   build:
+  #     context: ../apps/mcp
+  #     dockerfile: Dockerfile
+  #   container_name: hivelogs-mcp
+  #   restart: unless-stopped
+  #   depends_on:
+  #     - api
+  #   environment:
+  #     MCP_API_URL: ${MCP_API_URL:-http://api:8080}
+  #     MCP_ACCESS_TOKEN: ${MCP_ACCESS_TOKEN}
+  #   ports:
+  #     - "${MCP_PORT:-3001}:3001"
+  #   networks:
+  #     - hivelogs
+
+volumes:
+  timescaledb_data:
+
+networks:
+  hivelogs:
+    driver: bridge

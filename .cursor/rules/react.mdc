@@ -1,0 +1,26 @@
+---
+description: Convenções React/TypeScript para o dashboard HiveLogs
+globs: apps/web/**
+alwaysApply: false
+---
+
+# HiveLogs — Web
+
+## Stack
+
+React, TypeScript, Vite, shadcn/ui, TanStack Query, React Hook Form, Zod.
+
+## Segurança
+
+- `VITE_*` apenas para URLs públicas (ex: API base URL)
+- Nunca Backend Secret Key, MCP Access Token ou JWT hardcoded
+
+## Responsabilidade
+
+- Consumir API; exibir dados; formulários de gestão
+- Sem lógica de ingestão (isso é `apps/api` + SDKs)
+
+## Organização
+
+- Componentes em `src/components/`; páginas em `src/pages/` ou `src/routes/`
+- Validação de formulários com Zod; estado servidor com TanStack Query

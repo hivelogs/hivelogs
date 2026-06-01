@@ -1,0 +1,29 @@
+---
+description: Regras centrais do monorepo HiveLogs — boundaries, segurança e escopo
+alwaysApply: true
+---
+
+# HiveLogs — Core
+
+## Monorepo
+
+- `apps/api` — ingestão e API; `apps/web` — dashboard; `apps/worker` — jobs; `apps/mcp` — IA/MCP
+- `packages/shared-contracts` — schemas e tipos compartilhados (sem regras de negócio)
+- Novos contratos de ingestão → `shared-contracts` antes da API
+
+## Segurança (inegociável)
+
+- **Backend Secret Key** e **MCP Access Token**: nunca em `apps/web`, bundles JS ou `VITE_*`
+- **Frontend Public Key**: pública; sem escopos de leitura ou admin
+- Isolamento: Organization → Application → Environment
+
+## Código
+
+- Comentários só em último caso
+- Não expandir escopo além do pedido
+- Dúvidas de regra de negócio → perguntar ao usuário
+
+## Docs
+
+- Dev/ADR/skills: PT-BR | README raiz e docs de usuário: inglês
+- Detalhes: `AGENTS.md`, `docs/architecture.md`, `docs/security-model.md`

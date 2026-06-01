@@ -1,0 +1,26 @@
+---
+description: Padrões de documentação e ADRs do HiveLogs
+globs: docs/**,**/README.md
+alwaysApply: false
+---
+
+# HiveLogs — Documentação
+
+## ADRs
+
+- Caminho: `docs/adr/NNN-titulo-kebab-case.md`
+- Seções: Status, Context, Decision, Consequences, Alternatives Considered
+- Idioma: PT-BR | Template: `docs/templates/adr-template.md`
+
+## README de módulo
+
+Seções obrigatórias: **Propósito**, **Responsabilidades**, **O que NÃO deve conter**
+
+## Idioma
+
+- `docs/`, ADRs, READMEs de `apps/` e `packages/`: PT-BR
+- `README.md` na raiz: inglês (usuário final)
+
+## Links
+
+Referencie `docs/architecture.md` e `docs/security-model.md` em vez de duplicar conteúdo longo.

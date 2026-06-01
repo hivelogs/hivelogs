@@ -1,0 +1,28 @@
+---
+description: Convenções .NET para API, worker, MCP e SDK do HiveLogs
+globs: apps/api/**,apps/worker/**,apps/mcp/**,packages/sdk-dotnet/**
+alwaysApply: false
+---
+
+# HiveLogs — .NET
+
+## Clean Architecture
+
+- **Domain**: entidades e regras; sem EF, ASP.NET ou HTTP
+- **Application**: casos de uso, interfaces; sem UI
+- **Infrastructure**: EF, repositórios, integrações externas
+- **Api/Presentation**: controllers e DI apenas na borda
+
+## Naming
+
+- Projetos: `HiveLogs.{App}.{Layer}` (ex: `HiveLogs.Api.Domain`)
+
+## Não colocar aqui
+
+- Componentes React ou assets do dashboard
+- Tools MCP no `apps/api` (use `apps/mcp`)
+- Lógica de agregação pesada (use `apps/worker`)
+
+## Testes
+
+- `tests/` espelha estrutura de `src/`; nomenclatura `*Tests.cs`
