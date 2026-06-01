@@ -2,7 +2,10 @@
 
 **Tipo:** Bug | Feature | Chore | Docs  
 **MVP:** MVP 1 | MVP 2 | MVP 3 | Future  
-**Módulo:** api | web | worker | mcp | sdk-dotnet | sdk-js | shared-contracts | infra | docs
+**Módulo:** api | web | worker | mcp | sdk-dotnet | sdk-js | shared-contracts | infra | docs  
+**Techspec:** TS-NNN (opcional)  
+**Task:** TASK-NN (opcional)  
+**Branch:** feature/TS-NNN-slug (opcional)
 
 ## Contexto
 

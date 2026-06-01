@@ -2,6 +2,12 @@
 
 Descreva em 1–3 frases o que mudou e por quê.
 
+## Techspec
+
+**ID:** TS-NNN  
+**Branch:** feature/TS-NNN-slug  
+**Tasks incluídas:** TASK-01, TASK-02, …
+
 ## Módulos afetados
 
 - [ ] apps/api
@@ -33,5 +39,7 @@ MVP 1 | MVP 2 | MVP 3 | N/A (infra/docs only)
 ## Docs
 
 - [ ] ADR criado/atualizado (se decisão arquitetural)
+- [ ] Techspec status → `Implemented` (se PR de feature)
+- [ ] `shared-memory.md` reflete estado final da implementação
 - [ ] README do módulo atualizado (se boundaries mudaram)
 - [ ] `docs/architecture.md` ou `security-model.md` (se aplicável)
