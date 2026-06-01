@@ -217,4 +217,11 @@ Read [AGENTS.md](AGENTS.md) before making changes. Explore `docs/` and module RE
 
 ## License
 
-License to be determined.
+HiveLogs is licensed under the [GNU Affero General Public License v3.0 or later](LICENSE) (AGPL-3.0).
+
+- The project remains **free and open source**.
+- You may use, modify, and redistribute it under the same license.
+- If you run a **modified version as a network service** (e.g. hosted observability SaaS), you must **make the corresponding source code available** to users.
+- You **cannot** take HiveLogs (or a derivative), keep changes closed-source, and sell it as a proprietary paid product without complying with AGPL obligations.
+
+See [LICENSE](LICENSE) for the full text.
