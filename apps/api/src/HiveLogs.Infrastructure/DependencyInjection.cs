@@ -1,6 +1,7 @@
 using HiveLogs.Application.Abstractions.Persistence;
 using HiveLogs.Application.Abstractions.Time;
 using HiveLogs.Infrastructure.Persistence;
+using HiveLogs.Infrastructure.Persistence.Repositories;
 using HiveLogs.Infrastructure.Time;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -14,13 +15,27 @@ public static class DependencyInjection
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        var connectionString = configuration.GetConnectionString("Default")
-            ?? throw new InvalidOperationException("Connection string 'Default' is not configured.");
+        if (configuration.GetValue<bool>("Testing:UseInMemoryDatabase"))
+        {
+            var databaseName = configuration["Testing:InMemoryDatabaseName"]
+                ?? Guid.NewGuid().ToString();
 
-        services.AddDbContext<HiveLogsDbContext>(options =>
-            options.UseNpgsql(connectionString));
+            services.AddDbContext<HiveLogsDbContext>(options =>
+                options.UseInMemoryDatabase(databaseName));
+        }
+        else
+        {
+            var connectionString = configuration.GetConnectionString("Default")
+                ?? throw new InvalidOperationException("Connection string 'Default' is not configured.");
+
+            services.AddDbContext<HiveLogsDbContext>(options =>
+                options.UseNpgsql(connectionString));
+        }
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddScoped<IOrganizationRepository, OrganizationRepository>();
+        services.AddScoped<IApplicationRepository, ApplicationRepository>();
+        services.AddScoped<IEnvironmentRepository, EnvironmentRepository>();
         services.AddSingleton<IClock, SystemClock>();
 
         return services;
