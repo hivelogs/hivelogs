@@ -7,9 +7,9 @@ Este documento descreve o plano de evolução do projeto por fases. Itens marcad
 Base do sistema: autenticação, modelo de dados, ingestão e dashboard inicial.
 
 - [ ] Autenticação básica (JWT)
-- [ ] Organizações
-- [ ] Aplicações
-- [ ] Ambientes
+- [x] Organizações
+- [x] Aplicações
+- [x] Ambientes
 - [ ] Modelo de chaves (API Keys)
 - [ ] Frontend Public Key
 - [ ] Backend Secret Key
