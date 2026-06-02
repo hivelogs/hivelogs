@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/HiveLogs.Api/HiveLogs.Api.csproj" />
+    <Project Path="src/HiveLogs.Application/HiveLogs.Application.csproj" />
+    <Project Path="src/HiveLogs.Domain/HiveLogs.Domain.csproj" />
+    <Project Path="src/HiveLogs.Infrastructure/HiveLogs.Infrastructure.csproj" />
+    <Project Path="src/HiveLogs.IoC/HiveLogs.IoC.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/HiveLogs.Api.Tests/HiveLogs.Api.Tests.csproj" />
+    <Project Path="tests/HiveLogs.Application.Tests/HiveLogs.Application.Tests.csproj" />
+    <Project Path="tests/HiveLogs.Domain.Tests/HiveLogs.Domain.Tests.csproj" />
+    <Project Path="tests/HiveLogs.Infrastructure.Tests/HiveLogs.Infrastructure.Tests.csproj" />
+  </Folder>
+</Solution>
