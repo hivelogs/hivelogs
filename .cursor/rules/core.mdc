@@ -32,6 +32,13 @@ Fluxo obrigatório: **planning → techspec (Approved) → tasks → implementa�
 - Skill orquestradora: `hivelogs-feature-workflow`
 - Detalhes: [docs/techspecs/README.md](../../docs/techspecs/README.md)
 
+## Agentes e commit
+
+Por task: **Dev → Docs → Code Review → commit**. Code Review **APROVADO** é gate obrigatório antes de `git commit`.
+
+- Agentes: [.cursor/agents/](../../.cursor/agents/) — `@HiveLogs Dev`, `@HiveLogs Docs`, `@HiveLogs Code Review`
+- Orquestração: `hivelogs-commit-workflow` — [docs/agents.md](../../docs/agents.md)
+
 ## Docs
 
 - Dev/ADR/skills: PT-BR | README raiz e docs de usuário: inglês

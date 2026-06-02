@@ -2,7 +2,7 @@
 task_id: TASK-04
 techspec: TS-002
 titulo: Camada Infrastructure
-status: Pending
+status: Done
 modulo: api
 mvp: MVP 1
 depends_on: [TASK-03]

@@ -2,7 +2,7 @@
 task_id: TASK-01
 techspec: TS-002
 titulo: Documentação e ADR
-status: Pending
+status: Done
 modulo: docs
 mvp: MVP 1
 depends_on: []

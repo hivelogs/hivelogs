@@ -2,7 +2,7 @@
 task_id: TASK-06
 techspec: TS-002
 titulo: IoC
-status: Pending
+status: Done
 modulo: api
 mvp: MVP 1
 depends_on: [TASK-05]

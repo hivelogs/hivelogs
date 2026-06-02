@@ -2,7 +2,7 @@
 task_id: TASK-02
 techspec: TS-002
 titulo: Camada Domain
-status: Pending
+status: Done
 modulo: api
 mvp: MVP 1
 depends_on: [TASK-01]

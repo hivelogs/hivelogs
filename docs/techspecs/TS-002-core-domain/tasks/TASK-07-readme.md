@@ -2,7 +2,7 @@
 task_id: TASK-07
 techspec: TS-002
 titulo: Documentação de módulo
-status: Pending
+status: Done
 modulo: docs
 mvp: MVP 1
 depends_on: [TASK-06]

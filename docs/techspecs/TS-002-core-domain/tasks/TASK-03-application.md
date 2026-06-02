@@ -2,7 +2,7 @@
 task_id: TASK-03
 techspec: TS-002
 titulo: Camada Application
-status: Pending
+status: Done
 modulo: api
 mvp: MVP 1
 depends_on: [TASK-02]
