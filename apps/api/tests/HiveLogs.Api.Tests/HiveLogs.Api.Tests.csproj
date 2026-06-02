@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\HiveLogs.Api\HiveLogs.Api.csproj" />
+    <ProjectReference Include="..\..\src\HiveLogs.Application\HiveLogs.Application.csproj" />
   </ItemGroup>
 
 </Project>

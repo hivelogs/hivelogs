@@ -22,6 +22,24 @@ public static class ResultExtensions
         return result.Error!.ToProblemDetailsResult(httpContext);
     }
 
+    public static IActionResult ToCreatedAtActionResult<T>(
+        this Result<T> result,
+        HttpContext httpContext,
+        string actionName,
+        Func<T, object?> routeValuesFactory)
+    {
+        if (result.IsSuccess)
+        {
+            return new CreatedAtActionResult(
+                actionName,
+                null,
+                routeValuesFactory(result.Value),
+                result.Value);
+        }
+
+        return result.Error!.ToProblemDetailsResult(httpContext);
+    }
+
     private static ObjectResult ToProblemDetailsResult(this Error error, HttpContext httpContext)
     {
         var statusCode = error.Type.ToStatusCode();
