@@ -81,7 +81,9 @@ Implementação em `HiveLogs.IoC/DependencyInjection.cs`.
 |----------|-----------|
 | Erro esperado (not found, conflito, validação) | `Result` / `Result<T>` + `Error` |
 | Falha inesperada ou invariante crítica | Exception → `GlobalExceptionHandler` |
-| Contrato HTTP | `ProblemDetails` com `code` e `traceId` |
+| Contrato HTTP | `ProblemDetails` com `code` e `traceId` (`Content-Type: application/problem+json`) |
+
+> Future improvement: `DomainException` may evolve to carry an `Error` or `ErrorType`, allowing domain exceptions to map to more specific HTTP statuses and error codes instead of always returning `general.validation`.
 
 ### Mapeamento HTTP
 
