@@ -4,12 +4,6 @@
     <ProjectReference Include="..\HiveLogs.IoC\HiveLogs.IoC.csproj" />
   </ItemGroup>
 
-  <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
-
   <ItemGroup>
     <InternalsVisibleTo Include="HiveLogs.Api.Tests" />
   </ItemGroup>
