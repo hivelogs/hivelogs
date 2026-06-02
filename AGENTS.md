@@ -91,7 +91,13 @@ docker compose up timescaledb -d
 ### API / Web / Worker / MCP (após inicialização dos projetos)
 
 ```bash
-# API — a documentar após dotnet new
+cd apps/api
+dotnet restore && dotnet build && dotnet test
+dotnet run --project src/HiveLogs.Api
+# GET /health → {"status":"healthy","service":"hivelogs-api"}
+```
+
+```bash
 # Web — a documentar após npm create vite
 # Worker — a documentar após dotnet new worker
 # MCP — a documentar após init do projeto

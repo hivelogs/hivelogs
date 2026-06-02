@@ -6,16 +6,20 @@ alwaysApply: false
 
 # HiveLogs — .NET
 
-## Clean Architecture
+## Clean Architecture (`apps/api`)
 
-- **Domain**: entidades e regras; sem EF, ASP.NET ou HTTP
-- **Application**: casos de uso, interfaces; sem UI
-- **Infrastructure**: EF, repositórios, integrações externas
-- **Api/Presentation**: controllers e DI apenas na borda
+- **Domain** (`HiveLogs.Domain`): entidades e regras; sem EF, ASP.NET ou HTTP
+- **Application** (`HiveLogs.Application`): casos de uso, interfaces; sem UI
+- **Infrastructure** (`HiveLogs.Infrastructure`): EF, repositórios, integrações
+- **IoC** (`HiveLogs.IoC`): composition root — `AddHiveLogsDependencies`
+- **Api** (`HiveLogs.Api`): HTTP e middlewares; referencia **somente** IoC
+
+Grafo: `Api → IoC → Application/Infrastructure → Domain`
 
 ## Naming
 
-- Projetos: `HiveLogs.{App}.{Layer}` (ex: `HiveLogs.Api.Domain`)
+- Projetos da API: `HiveLogs.{Layer}` (ex: `HiveLogs.Domain`, `HiveLogs.Application`)
+- Erros esperados: `Result` + `Error`; HTTP: `ProblemDetails` com `code` e `traceId`
 
 ## Não colocar aqui
 
