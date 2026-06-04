@@ -11,5 +11,6 @@ public sealed class HiveLogsWebApplicationFactory : WebApplicationFactory<Progra
     {
         builder.UseSetting("Testing:UseInMemoryDatabase", "true");
         builder.UseSetting("Testing:InMemoryDatabaseName", _databaseName);
+        builder.UseSetting("Setup:Password", "test-setup-password");
     }
 }
