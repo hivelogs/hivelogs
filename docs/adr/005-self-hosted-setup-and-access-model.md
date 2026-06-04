@@ -23,7 +23,7 @@ Estados de instalação:
 - `SetupRequired` — setup ainda não concluído; apenas endpoints de setup/status permitidos (nesta feature, sem middleware global de bloqueio).
 - `Configured` — setup concluído; `POST /setup/initialize` retorna `409 setup.already_completed`.
 
-O status é persistido explicitamente em `setup_state` (não inferido apenas por existência de registros).
+O status é persistido explicitamente em `setup_state` (não inferido apenas por existência de registros). A tabela é **singleton**: uma única linha com ID fixo (`SetupState.SingletonId`). `GET /setup/status` não grava no banco; ausência de linha implica `SetupRequired`.
 
 ### Proteção do setup por variável de ambiente
 

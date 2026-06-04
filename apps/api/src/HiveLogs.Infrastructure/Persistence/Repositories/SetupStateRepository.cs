@@ -11,7 +11,9 @@ internal sealed class SetupStateRepository : ISetupStateRepository
     public SetupStateRepository(HiveLogsDbContext dbContext) => _dbContext = dbContext;
 
     public Task<SetupState?> GetAsync(CancellationToken cancellationToken = default) =>
-        _dbContext.SetupStates.OrderBy(s => s.Id).FirstOrDefaultAsync(cancellationToken);
+        _dbContext.SetupStates.SingleOrDefaultAsync(
+            s => s.Id == SetupState.SingletonId,
+            cancellationToken);
 
     public async Task AddAsync(SetupState setupState, CancellationToken cancellationToken = default) =>
         await _dbContext.SetupStates.AddAsync(setupState, cancellationToken);

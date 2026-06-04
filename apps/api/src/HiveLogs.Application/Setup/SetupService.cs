@@ -50,8 +50,8 @@ public sealed class SetupService : ISetupService
     public async Task<Result<SetupStatusResponse>> GetStatusAsync(
         CancellationToken cancellationToken = default)
     {
-        var setupState = await EnsureSetupStateAsync(cancellationToken);
-        var status = setupState.GetStatus();
+        var setupState = await _setupStateRepository.GetAsync(cancellationToken);
+        var status = setupState?.GetStatus() ?? SetupStatus.SetupRequired;
 
         return Result<SetupStatusResponse>.Success(
             new SetupStatusResponse(status, status == SetupStatus.SetupRequired));
@@ -69,8 +69,8 @@ public sealed class SetupService : ISetupService
         if (setupPasswordResult.IsFailure)
             return Result<InitializeSetupResponse>.Failure(setupPasswordResult.Error!);
 
-        var setupState = await EnsureSetupStateAsync(cancellationToken);
-        if (setupState.IsCompleted)
+        var existingSetupState = await _setupStateRepository.GetAsync(cancellationToken);
+        if (existingSetupState?.IsCompleted == true)
             return Result<InitializeSetupResponse>.Failure(SetupErrors.AlreadyCompleted);
 
         if (await _organizationRepository.ExistsByNameAsync(request.OrganizationName, cancellationToken))
@@ -118,14 +118,28 @@ public sealed class SetupService : ISetupService
         if (membershipResult.IsFailure)
             return Result<InitializeSetupResponse>.Failure(membershipResult.Error!);
 
+        var setupState = existingSetupState ?? SetupState.CreatePending();
+        var isNewSetupState = existingSetupState is null;
+
         await _organizationRepository.AddAsync(organizationResult.Value, cancellationToken);
         await _userRepository.AddAsync(adminResult.Value, cancellationToken);
         await _organizationMemberRepository.AddAsync(membershipResult.Value, cancellationToken);
 
         setupState.MarkCompleted(now);
-        await _setupStateRepository.UpdateAsync(setupState, cancellationToken);
 
-        await _unitOfWork.SaveChangesAsync(cancellationToken);
+        if (isNewSetupState)
+            await _setupStateRepository.AddAsync(setupState, cancellationToken);
+        else
+            await _setupStateRepository.UpdateAsync(setupState, cancellationToken);
+
+        try
+        {
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
+        }
+        catch (Exception ex) when (IsSetupStateConcurrencyConflict(ex))
+        {
+            return Result<InitializeSetupResponse>.Failure(SetupErrors.AlreadyCompleted);
+        }
 
         var organization = organizationResult.Value;
         var admin = adminResult.Value;
@@ -142,15 +156,18 @@ public sealed class SetupService : ISetupService
                     admin.MustChangePassword)));
     }
 
-    private async Task<SetupState> EnsureSetupStateAsync(CancellationToken cancellationToken)
+    private static bool IsSetupStateConcurrencyConflict(Exception exception)
     {
-        var existing = await _setupStateRepository.GetAsync(cancellationToken);
-        if (existing is not null)
-            return existing;
+        for (var current = exception; current is not null; current = current.InnerException)
+        {
+            if (current is InvalidOperationException invalidOp
+                && invalidOp.Message == SetupState.ConcurrencyConflictMessage)
+                return true;
 
-        var pending = SetupState.CreatePending();
-        await _setupStateRepository.AddAsync(pending, cancellationToken);
-        await _unitOfWork.SaveChangesAsync(cancellationToken);
-        return pending;
+            if (current.GetType().FullName == "Microsoft.EntityFrameworkCore.DbUpdateException")
+                return true;
+        }
+
+        return false;
     }
 }

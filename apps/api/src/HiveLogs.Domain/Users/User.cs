@@ -28,9 +28,6 @@ public sealed class User : AuditableEntity
         DateTimeOffset now,
         bool mustChangePassword = false)
     {
-        if (!Enum.IsDefined(typeof(UserRole), UserRole.Admin))
-            return Result<User>.Failure(UserErrors.InvalidRole);
-
         var user = new User
         {
             Id = Guid.NewGuid(),

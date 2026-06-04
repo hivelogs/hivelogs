@@ -10,6 +10,9 @@ techspec_status: Approved
 
 ## Decisões de implementação
 
+- **SetupState singleton:** ID fixo `SetupState.SingletonId` (`00000000-0000-0000-0000-000000000001`); PK impede múltiplas linhas.
+- **GET /setup/status:** read-only; sem `setup_state` persistido retorna `SetupRequired` sem `SaveChanges`.
+- **POST /setup/initialize:** cria org + admin + membership + `setup_state` completed em um único `SaveChangesAsync`; conflito de PK/concorrência → `setup.already_completed`.
 - **Setup password inválido:** HTTP 401 (`setup.invalid_setup_password`).
 - **Setup password ausente na config:** HTTP 500 (`setup.password_not_configured`).
 - **Hash:** `PasswordHasher<PasswordUser>` (ASP.NET Core Identity package, sem Identity completo).

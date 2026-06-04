@@ -4,6 +4,11 @@ namespace HiveLogs.Domain.Setup;
 
 public sealed class SetupState : Entity
 {
+    public static readonly Guid SingletonId =
+        Guid.Parse("00000000-0000-0000-0000-000000000001");
+
+    public const string ConcurrencyConflictMessage = "SETUP_STATE_ALREADY_EXISTS";
+
     public bool IsCompleted { get; private set; }
 
     public DateTimeOffset? CompletedAt { get; private set; }
@@ -16,7 +21,7 @@ public sealed class SetupState : Entity
     {
         return new SetupState
         {
-            Id = Guid.NewGuid(),
+            Id = SingletonId,
             IsCompleted = false,
             CompletedAt = null
         };

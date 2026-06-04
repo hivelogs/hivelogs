@@ -15,6 +15,17 @@ public class SetupStateTests
     }
 
     [Fact]
+    public void CreatePending_ShouldUseSingletonId()
+    {
+        var first = SetupState.CreatePending();
+        var second = SetupState.CreatePending();
+
+        first.Id.Should().Be(SetupState.SingletonId);
+        second.Id.Should().Be(SetupState.SingletonId);
+        first.Id.Should().Be(second.Id);
+    }
+
+    [Fact]
     public void MarkCompleted_ShouldReturnConfigured()
     {
         var state = SetupState.CreatePending();

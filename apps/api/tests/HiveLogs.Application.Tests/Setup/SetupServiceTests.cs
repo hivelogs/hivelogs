@@ -69,14 +69,28 @@ public class SetupServiceTests
     }
 
     [Fact]
-    public async Task InitializeAsync_WithValidData_ShouldCreateEntities()
+    public async Task GetStatusAsync_WhenNoSetupState_ShouldReturnSetupRequiredWithoutSaving()
+    {
+        var unitOfWork = new FakeUnitOfWork();
+        var sut = CreateSut(unitOfWork: unitOfWork);
+
+        var result = await sut.GetStatusAsync();
+
+        result.IsSuccess.Should().BeTrue();
+        result.Value.Status.Should().Be(SetupStatus.SetupRequired);
+        unitOfWork.SaveChangesCallCount.Should().Be(0);
+    }
+
+    [Fact]
+    public async Task InitializeAsync_WithValidData_ShouldSaveOnlyOnceAtEnd()
     {
         var setupRepo = new InMemorySetupStateRepository();
         var orgRepo = new InMemoryOrganizationRepository();
         var userRepo = new InMemoryUserRepository();
         var memberRepo = new InMemoryOrganizationMemberRepository();
+        var unitOfWork = new FakeUnitOfWork();
         var passwordHasher = new FakePasswordHasher();
-        var sut = CreateSut(setupRepo, orgRepo, userRepo, memberRepo, passwordHasher: passwordHasher);
+        var sut = CreateSut(setupRepo, orgRepo, userRepo, memberRepo, unitOfWork, passwordHasher: passwordHasher);
 
         var request = new InitializeSetupRequest(
             "setup-secret",
@@ -101,6 +115,9 @@ public class SetupServiceTests
         var storedUser = userRepo.Users.Single();
         storedUser.PasswordHash.Value.Should().Be("hashed:StrongPass123");
         storedUser.PasswordHash.Value.Should().NotBe("StrongPass123");
+
+        unitOfWork.SaveChangesCallCount.Should().Be(1);
+        setupRepo.State!.Id.Should().Be(SetupState.SingletonId);
 
         (await sut.GetStatusAsync()).Value.Status.Should().Be(SetupStatus.Configured);
     }

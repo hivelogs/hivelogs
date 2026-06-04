@@ -12,6 +12,9 @@ internal sealed class InMemorySetupStateRepository : ISetupStateRepository
 
     public Task AddAsync(SetupState setupState, CancellationToken cancellationToken = default)
     {
+        if (_state is not null)
+            throw new InvalidOperationException(SetupState.ConcurrencyConflictMessage);
+
         _state = setupState;
         return Task.CompletedTask;
     }
@@ -21,4 +24,6 @@ internal sealed class InMemorySetupStateRepository : ISetupStateRepository
         _state = setupState;
         return Task.CompletedTask;
     }
+
+    public SetupState? State => _state;
 }
