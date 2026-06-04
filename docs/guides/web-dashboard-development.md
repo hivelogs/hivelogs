@@ -72,6 +72,18 @@ Referência: `src/app/routes/SetupBootstrap.tsx`, `SetupGate.tsx`.
 
 `SetupBootstrap` deve renderizar `<Outlet />` (não `children`) para funcionar como layout route do React Router.
 
+### Mutação que altera o bootstrap (ex.: setup concluído)
+
+Se uma mutation muda o estado lido pelos gates (ex. `setupRequired`), atualize o cache **antes** de navegar:
+
+```typescript
+queryClient.setQueryData(queryKey, novoValor)
+void queryClient.invalidateQueries({ queryKey })
+navigate('/destino', { replace: true })
+```
+
+Sem isso, `staleTime` pode manter o valor antigo e o gate redireciona incorretamente (ex. `/login` → `/setup`).
+
 ## Formulários
 
 - React Hook Form + `@hookform/resolvers/zod`

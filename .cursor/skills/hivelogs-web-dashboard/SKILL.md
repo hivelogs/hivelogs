@@ -46,6 +46,7 @@ Query keys estáveis: ex. `['setup', 'status']`.
 - Zod alinhado ao validator .NET (min length, regex senha, etc.)
 - Senhas: `type="password"`; nunca storage/URL/logs
 - Erro API: não resetar form inteiro
+- Mutation que muda estado de gate global: `setQueryData` + `invalidateQueries` **antes** de `navigate`
 
 ## CORS — diagnóstico rápido
 

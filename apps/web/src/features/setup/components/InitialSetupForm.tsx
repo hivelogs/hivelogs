@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import {
   Building2,
   CircleAlert,
@@ -14,6 +14,8 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { initializeSetup } from '@/features/setup/api/setup-api'
 import { getSetupErrorMessage } from '@/features/setup/api/setup-error-messages'
+import { setupStatusQueryKey } from '@/features/setup/hooks/use-setup-status'
+import type { SetupStatusResponse } from '@/features/setup/types/setup-types'
 import {
   initialSetupSchema,
   type InitialSetupFormValues,
@@ -68,6 +70,7 @@ function SetupField({
 
 export function InitialSetupForm() {
   const navigate = useNavigate()
+  const queryClient = useQueryClient()
   const [apiError, setApiError] = useState<{
     message: string
     traceId?: string
@@ -92,6 +95,13 @@ export function InitialSetupForm() {
   const mutation = useMutation({
     mutationFn: initializeSetup,
     onSuccess: () => {
+      queryClient.setQueryData<SetupStatusResponse>(setupStatusQueryKey, {
+        status: 'Configured',
+        setupRequired: false,
+      })
+
+      void queryClient.invalidateQueries({ queryKey: setupStatusQueryKey })
+
       navigate('/login?setupCompleted=true', { replace: true })
     },
     onError: (error) => {
