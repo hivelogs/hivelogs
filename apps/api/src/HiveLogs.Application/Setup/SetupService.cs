@@ -23,6 +23,7 @@ public sealed class SetupService : ISetupService
     private readonly IClock _clock;
     private readonly IPasswordHasher _passwordHasher;
     private readonly ISetupPasswordValidator _setupPasswordValidator;
+    private readonly IDatabaseExceptionClassifier _databaseExceptionClassifier;
     private readonly IValidator<InitializeSetupRequest> _initializeValidator;
 
     public SetupService(
@@ -34,6 +35,7 @@ public sealed class SetupService : ISetupService
         IClock clock,
         IPasswordHasher passwordHasher,
         ISetupPasswordValidator setupPasswordValidator,
+        IDatabaseExceptionClassifier databaseExceptionClassifier,
         IValidator<InitializeSetupRequest> initializeValidator)
     {
         _setupStateRepository = setupStateRepository;
@@ -44,6 +46,7 @@ public sealed class SetupService : ISetupService
         _clock = clock;
         _passwordHasher = passwordHasher;
         _setupPasswordValidator = setupPasswordValidator;
+        _databaseExceptionClassifier = databaseExceptionClassifier;
         _initializeValidator = initializeValidator;
     }
 
@@ -156,18 +159,14 @@ public sealed class SetupService : ISetupService
                     admin.MustChangePassword)));
     }
 
-    private static bool IsSetupStateConcurrencyConflict(Exception exception)
+    private bool IsSetupStateConcurrencyConflict(Exception exception)
     {
-        for (var current = exception; current is not null; current = current.InnerException)
-        {
-            if (current is InvalidOperationException invalidOp
-                && invalidOp.Message == SetupState.ConcurrencyConflictMessage)
-                return true;
+        if (exception is InvalidOperationException invalidOp
+            && invalidOp.Message == SetupState.ConcurrencyConflictMessage)
+            return true;
 
-            if (current.GetType().FullName == "Microsoft.EntityFrameworkCore.DbUpdateException")
-                return true;
-        }
-
-        return false;
+        return _databaseExceptionClassifier.IsUniqueConstraintViolation(
+            exception,
+            tableName: "setup_state");
     }
 }

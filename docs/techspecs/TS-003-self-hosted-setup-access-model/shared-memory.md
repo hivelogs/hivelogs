@@ -16,7 +16,8 @@ techspec_status: Approved
 - **Setup password inválido:** HTTP 401 (`setup.invalid_setup_password`).
 - **Setup password ausente na config:** HTTP 500 (`setup.password_not_configured`).
 - **Hash:** `PasswordHasher<PasswordUser>` (ASP.NET Core Identity package, sem Identity completo).
-- **Comparação setup password:** comparação em tempo constante via `CryptographicOperations.FixedTimeEquals` sobre UTF-8 bytes de comprimento igual (hash SHA256 dos valores se comprimentos diferem — ou pad; usar approach: hash both and compare hashes to avoid length leak).
+- **Comparação setup password:** `SHA256.HashData` de cada valor + `CryptographicOperations.FixedTimeEquals` (evita vazamento por tamanho).
+- **Conflito de setup:** `IDatabaseExceptionClassifier` detecta unique violation em `setup_state`; demais `DbUpdateException` não viram `setup.already_completed`.
 - **Admin inicial:** `UserRole.Admin`, `OrganizationMemberRole.Owner`, `MustChangePassword = false`.
 - **Email:** value object `Email` com `email_lower` único (shadow/computed como org names).
 - **Testes:** InMemory padrão; `HiveLogsWebApplicationFactory` define `Setup:Password` para testes.

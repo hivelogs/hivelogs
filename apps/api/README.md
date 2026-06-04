@@ -209,7 +209,7 @@ Instalação nova começa em `SetupRequired`. O operador configura a senha de se
 
 > Após setup concluído, alterar a senha de setup **não** altera usuários nem organização no banco.
 
-`setup_state` é **singleton** (ID fixo documentado em `SetupState.SingletonId`). `GET /setup/status` é **read-only** e não persiste estado pendente. `POST /setup/initialize` persiste organização, admin, membership e setup completed em **um único** `SaveChanges`.
+`setup_state` é **singleton** (ID fixo documentado em `SetupState.SingletonId`). `GET /setup/status` é **read-only** e não persiste estado pendente. `POST /setup/initialize` persiste organização, admin, membership e setup completed em **um único** `SaveChanges`. Conflitos de unique violation apenas em `setup_state` são mapeados para `setup.already_completed` via `IDatabaseExceptionClassifier`.
 
 O backend **não gera** senha temporária. O admin define `adminPassword` no body do setup; apenas o hash é persistido. Ver [ADR 005](../../docs/adr/005-self-hosted-setup-and-access-model.md).
 

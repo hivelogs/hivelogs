@@ -46,6 +46,7 @@ public static class DependencyInjection
         services.AddScoped<ISetupStateRepository, SetupStateRepository>();
         services.AddSingleton<IPasswordHasher, PasswordHasher>();
         services.AddSingleton<ISetupPasswordValidator, SetupPasswordValidator>();
+        services.AddSingleton<IDatabaseExceptionClassifier, DatabaseExceptionClassifier>();
         services.AddSingleton<IClock, SystemClock>();
 
         return services;

@@ -33,12 +33,9 @@ internal sealed class SetupPasswordValidator : ISetupPasswordValidator
 
     private static bool SecureEquals(string expected, string provided)
     {
-        var expectedBytes = Encoding.UTF8.GetBytes(expected);
-        var providedBytes = Encoding.UTF8.GetBytes(provided);
+        var expectedHash = SHA256.HashData(Encoding.UTF8.GetBytes(expected));
+        var providedHash = SHA256.HashData(Encoding.UTF8.GetBytes(provided));
 
-        if (expectedBytes.Length != providedBytes.Length)
-            return false;
-
-        return CryptographicOperations.FixedTimeEquals(expectedBytes, providedBytes);
+        return CryptographicOperations.FixedTimeEquals(expectedHash, providedHash);
     }
 }

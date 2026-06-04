@@ -19,13 +19,15 @@ public class SetupServiceTests
         InMemoryOrganizationMemberRepository? memberRepo = null,
         FakeUnitOfWork? unitOfWork = null,
         FakeSetupPasswordValidator? setupPasswordValidator = null,
-        FakePasswordHasher? passwordHasher = null)
+        FakePasswordHasher? passwordHasher = null,
+        FakeDatabaseExceptionClassifier? databaseExceptionClassifier = null)
     {
         setupRepo ??= new InMemorySetupStateRepository();
         orgRepo ??= new InMemoryOrganizationRepository();
         userRepo ??= new InMemoryUserRepository();
         memberRepo ??= new InMemoryOrganizationMemberRepository();
         unitOfWork ??= new FakeUnitOfWork();
+        databaseExceptionClassifier ??= new FakeDatabaseExceptionClassifier();
 
         return new SetupService(
             setupRepo,
@@ -36,6 +38,7 @@ public class SetupServiceTests
             new FakeClock(Now),
             passwordHasher ?? new FakePasswordHasher(),
             setupPasswordValidator ?? new FakeSetupPasswordValidator(),
+            databaseExceptionClassifier,
             new InitializeSetupRequestValidator());
     }
 
@@ -207,4 +210,46 @@ public class SetupServiceTests
         result.IsFailure.Should().BeTrue();
         result.Error!.Code.Should().Be("users.password_too_weak");
     }
+
+    [Fact]
+    public async Task InitializeAsync_WhenSetupStateConcurrencyConflict_ShouldReturnAlreadyCompleted()
+    {
+        var classifier = new FakeDatabaseExceptionClassifier { SetupStateUniqueViolation = true };
+        var unitOfWork = new FakeUnitOfWork
+        {
+            ExceptionToThrowOnSave = new InvalidOperationException("db save failed")
+        };
+        var sut = CreateSut(unitOfWork: unitOfWork, databaseExceptionClassifier: classifier);
+
+        var result = await sut.InitializeAsync(new InitializeSetupRequest(
+            "setup-secret",
+            "Acme",
+            "Admin",
+            "admin@acme.com",
+            "StrongPass123"));
+
+        result.IsFailure.Should().BeTrue();
+        result.Error!.Code.Should().Be("setup.already_completed");
+    }
+
+    [Fact]
+    public async Task InitializeAsync_WhenUnexpectedSaveFailure_ShouldNotMapToAlreadyCompleted()
+    {
+        var unitOfWork = new FakeUnitOfWork
+        {
+            ExceptionToThrowOnSave = new InvalidOperationException("unexpected database failure")
+        };
+        var sut = CreateSut(unitOfWork: unitOfWork);
+
+        var act = () => sut.InitializeAsync(new InitializeSetupRequest(
+            "setup-secret",
+            "Acme",
+            "Admin",
+            "admin@acme.com",
+            "StrongPass123"));
+
+        await act.Should().ThrowAsync<InvalidOperationException>()
+            .WithMessage("unexpected database failure");
+    }
+
 }
