@@ -2,13 +2,28 @@
 techspec: TS-004
 branch: feature/TS-004-web-app-foundation
 ultima_atualizacao: 2026-06-04
-tasks_concluidas: []
+tasks_concluidas: [TASK-01, TASK-02, TASK-03, TASK-04, TASK-05, TASK-06]
 techspec_status: Approved
 ---
 
 # Shared Memory — TS-004: Web App Foundation
 
 ## Decisões de implementação
+
+### [TASK-02] Vite projeto — 2026-06-04
+
+- Vite 8 + React 19; `paths` em tsconfig sem `baseUrl` (TS 6)
+- Pacote npm: `@hivelogs/web`
+
+### [TASK-03] Tailwind shadcn — 2026-06-04
+
+- shadcn CLI criou em `@/` literal — componentes movidos para `src/shared/ui/`
+- Tema dark em `:root` (design.md)
+
+### [TASK-05] API client — 2026-06-04
+
+- `parseApiError` lê `code`/`traceId` no root ou em `extensions` (ASP.NET ProblemDetails)
+- `ApiError` sem parameter properties (erasableSyntaxOnly)
 
 - **API URL local:** `http://localhost:5054` (`VITE_API_BASE_URL`)
 - **Estrutura:** `src/app`, `src/pages`, `src/shared` (não `src/components`)
