@@ -2,7 +2,7 @@
 task_id: TASK-08
 techspec: TS-004
 titulo: Verificação final
-status: Pending
+status: Done
 modulo: web
 mvp: MVP 1
 depends_on: [TASK-07]

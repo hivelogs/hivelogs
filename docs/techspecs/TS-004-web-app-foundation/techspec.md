@@ -1,7 +1,7 @@
 ---
 id: TS-004
 titulo: Web App Foundation
-status: Approved
+status: Implemented
 mvp: MVP 1
 branch: feature/TS-004-web-app-foundation
 planning_ref: planning.md
@@ -124,4 +124,4 @@ npm run dev
 |--------|------|-------|
 | Draft | 2026-06-04 | Planning |
 | Approved | 2026-06-04 | Pronto para implementação |
-| Implemented | | Após merge PR |
+| Implemented | 2026-06-04 | PR #7 |

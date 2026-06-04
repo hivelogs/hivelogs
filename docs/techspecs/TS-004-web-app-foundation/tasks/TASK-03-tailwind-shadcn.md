@@ -2,7 +2,7 @@
 task_id: TASK-03
 techspec: TS-004
 titulo: Configurar Tailwind e shadcn/ui
-status: Pending
+status: Done
 modulo: web
 mvp: MVP 1
 depends_on: [TASK-02]

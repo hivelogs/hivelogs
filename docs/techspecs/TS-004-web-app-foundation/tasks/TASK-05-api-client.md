@@ -2,7 +2,7 @@
 task_id: TASK-05
 techspec: TS-004
 titulo: Criar env config, API client e ProblemDetails base
-status: Pending
+status: Done
 modulo: web
 mvp: MVP 1
 depends_on: [TASK-04]

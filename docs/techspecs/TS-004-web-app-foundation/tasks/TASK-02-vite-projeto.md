@@ -2,7 +2,7 @@
 task_id: TASK-02
 techspec: TS-004
 titulo: Criar projeto apps/web com Vite React TypeScript
-status: Pending
+status: Done
 modulo: web
 mvp: MVP 1
 depends_on: [TASK-01]

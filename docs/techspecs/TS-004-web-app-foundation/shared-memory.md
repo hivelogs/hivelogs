@@ -3,7 +3,8 @@ techspec: TS-004
 branch: feature/TS-004-web-app-foundation
 ultima_atualizacao: 2026-06-04
 tasks_concluidas: [TASK-01, TASK-02, TASK-03, TASK-04, TASK-05, TASK-06, TASK-07, TASK-08]
-techspec_status: Approved
+techspec_status: Implemented
+nota_merge: Status Implemented após merge do PR #7.
 ---
 
 # Shared Memory — TS-004: Web App Foundation
@@ -63,3 +64,4 @@ Nenhum consumido nesta feature. Preparado para TS-003:
 - [techspec.md](./techspec.md)
 - [planning.md](./planning.md)
 - [docs/design.md](../../design.md)
+- PR: #7
