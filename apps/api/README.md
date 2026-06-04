@@ -198,6 +198,14 @@ Migration: `20260602214111_InitialCoreDomain` — tabelas `organizations`, `appl
 
 Migration: `20260604120000_AddSelfHostedAccessModel` — tabelas `users`, `organization_members`, `setup_state`.
 
+Migration: `20260604220802_SetupAndWebLatestChanges` — índice FK em `organization_members.user_id`.
+
+> Migrations ficam em `src/HiveLogs.Infrastructure/Migrations/` (`EfMigrationsDirectory` no csproj). Não use `Persistence/Migrations/`.
+
+### CORS (dashboard web local)
+
+Com `apps/web` no Vite (`http://localhost:5173` ou `5174` se a porta estiver ocupada), a API precisa liberar a origem em `Cors:AllowedOrigins` (`appsettings.Development.json`). Reinicie a API após alterar.
+
 ## Self-hosted setup (TS-003)
 
 Instalação nova começa em `SetupRequired`. O operador configura a senha de setup no ambiente e executa o setup uma única vez.
