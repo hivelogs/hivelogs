@@ -1,16 +1,14 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/ui/card'
+import { Outlet } from 'react-router-dom'
 
-export function App() {
+export function AppLayout() {
   return (
-    <main className="flex min-h-screen items-center justify-center p-8">
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <CardTitle>HiveLogs</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-muted-foreground">Web foundation — Tailwind + shadcn/ui</p>
-        </CardContent>
-      </Card>
-    </main>
+    <div className="flex min-h-screen flex-col">
+      <header className="border-b border-border px-6 py-4">
+        <span className="text-lg font-semibold tracking-tight">HiveLogs</span>
+      </header>
+      <main className="flex flex-1 items-center justify-center p-8">
+        <Outlet />
+      </main>
+    </div>
   )
 }
