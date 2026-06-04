@@ -58,6 +58,14 @@ Fundação de acesso self-hosted: entidades `User`, `OrganizationMember`, `Setup
 7. TASK-07 — README e docs globais
 8. TASK-08 — Verificação (`dotnet build` / `dotnet test`)
 
+## Decisões finais (code review)
+
+- `SetupState.SingletonId` fixo; PK impede múltiplas linhas.
+- `GET /setup/status` read-only (sem `SaveChanges` quando não há estado).
+- `POST /setup/initialize` atômico (um `SaveChanges` no final).
+- `IDatabaseExceptionClassifier` mapeia apenas unique violation em `setup_state` → `setup.already_completed`.
+- Setup password: `SHA256.HashData` + `FixedTimeEquals`.
+
 ## Critérios de aceite
 
 - `dotnet build` e `dotnet test` verdes sem PostgreSQL local
