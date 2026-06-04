@@ -60,6 +60,7 @@ Ou um único pedido:
 |------|----------------|
 | Planning / techspec / tasks | Docs |
 | Implementação TASK-NN | Dev → Docs → Code Review → commit |
+| Após merge do PR | `hivelogs-post-merge-cleanup` (main, pull, apagar branches) |
 | PR único (todas tasks Done) | Review humano + opcional Code Review no diff total |
 
 Detalhes: [docs/techspecs/README.md](./techspecs/README.md), skill `hivelogs-feature-workflow`.

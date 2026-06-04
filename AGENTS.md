@@ -137,6 +137,7 @@ Invoque pelo nome (`name` no frontmatter) ou descreva o cenário.
 | Skill | Use quando |
 |-------|------------|
 | `hivelogs-commit-workflow` | Fechar TASK-NN: Dev → Docs → Review → commit |
+| `hivelogs-post-merge-cleanup` | Após merge do PR: main, pull, apagar branch local e remota |
 | `hivelogs-agent-dev` | Delegar implementação ao Dev Agent |
 | `hivelogs-agent-docs` | Delegar documentação ao Docs Agent |
 | `hivelogs-agent-code-review` | Revisar diff **antes** de `git commit` |
