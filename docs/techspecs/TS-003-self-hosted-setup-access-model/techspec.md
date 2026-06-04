@@ -1,7 +1,7 @@
 ---
 id: TS-003
 titulo: Self-hosted Setup and Access Model
-status: Approved
+status: Implemented
 mvp: MVP 1
 branch: feature/TS-003-self-hosted-setup-access-model
 planning_ref: planning.md
