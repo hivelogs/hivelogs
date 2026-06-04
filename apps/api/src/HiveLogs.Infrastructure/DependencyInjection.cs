@@ -1,7 +1,9 @@
 using HiveLogs.Application.Abstractions.Persistence;
+using HiveLogs.Application.Abstractions.Security;
 using HiveLogs.Application.Abstractions.Time;
 using HiveLogs.Infrastructure.Persistence;
 using HiveLogs.Infrastructure.Persistence.Repositories;
+using HiveLogs.Infrastructure.Security;
 using HiveLogs.Infrastructure.Time;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -22,7 +24,9 @@ public static class DependencyInjection
 
             services.AddDbContext<HiveLogsDbContext>(options =>
                 options.UseInMemoryDatabase(databaseName)
-                    .AddInterceptors(new NameLowerSynchronizationInterceptor()));
+                    .AddInterceptors(
+                        new NameLowerSynchronizationInterceptor(),
+                        new EmailLowerSynchronizationInterceptor()));
         }
         else
         {
@@ -37,6 +41,11 @@ public static class DependencyInjection
         services.AddScoped<IOrganizationRepository, OrganizationRepository>();
         services.AddScoped<IApplicationRepository, ApplicationRepository>();
         services.AddScoped<IEnvironmentRepository, EnvironmentRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IOrganizationMemberRepository, OrganizationMemberRepository>();
+        services.AddScoped<ISetupStateRepository, SetupStateRepository>();
+        services.AddSingleton<IPasswordHasher, PasswordHasher>();
+        services.AddSingleton<ISetupPasswordValidator, SetupPasswordValidator>();
         services.AddSingleton<IClock, SystemClock>();
 
         return services;
