@@ -82,6 +82,10 @@ Template: [docs/templates/shared-memory-template.md](../templates/shared-memory-
 |----|--------|--------|-----|--------|
 | TS-001 | Fundação da Arquitetura Backend | Implemented | MVP 1 | `feature/TS-001-backend-architecture-foundation` |
 | TS-002 | Core Domain — Organizations, Applications and Environments | Implemented | MVP 1 | `feature/TS-002-core-domain` |
+<<<<<<< HEAD
+=======
+| TS-003 | Self-hosted Setup and Access Model | Approved | MVP 1 | `feature/TS-003-self-hosted-setup-access-model` |
+>>>>>>> 4930465 (feat(TS-003): TASK-01 documentação setup self-hosted)
 
 > Atualize esta tabela ao criar ou concluir techspecs.
 
