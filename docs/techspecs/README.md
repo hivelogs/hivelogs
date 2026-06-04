@@ -56,6 +56,7 @@ docs/techspecs/TS-NNN-slug/
 | Branch | `feature/TS-NNN-slug` |
 | Commit | **1 por task** — `feat(TS-NNN): TASK-NN descrição` |
 | PR | **1 por techspec** — após todas as tasks |
+| Pós-merge | Skill `hivelogs-post-merge-cleanup` — `main` + pull + apagar branch local/remota |
 
 Exemplo de commit:
 
