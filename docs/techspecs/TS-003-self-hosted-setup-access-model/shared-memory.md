@@ -1,7 +1,8 @@
 ---
 techspec: TS-003
 branch: feature/TS-003-self-hosted-setup-access-model
-ultima_atualizacao: 2026-06-04
+ultima_atualizacao: 2026-06-05
+nota_merge: Techspec Approved; status Implemented após merge do PR #6 (workflow).
 tasks_concluidas: [TASK-01, TASK-02, TASK-03, TASK-04, TASK-05, TASK-06, TASK-07, TASK-08]
 techspec_status: Approved
 ---
