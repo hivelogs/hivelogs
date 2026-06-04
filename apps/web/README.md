@@ -68,6 +68,8 @@ O dev server padrão do Vite fica em `http://localhost:5173`.
 
 **Desenvolvimento local:** com `dotnet run` na API, use `http://localhost:5054` ([launchSettings.json](../api/src/HiveLogs.Api/Properties/launchSettings.json)).
 
+**CORS:** a origem do Vite (ex.: `http://localhost:5173` ou `5174`) precisa estar em `Cors:AllowedOrigins` da API (`appsettings.Development.json`). Reinicie a API após mudanças de CORS.
+
 ### Segurança
 
 - `VITE_*` expõe valores no bundle do browser — use **apenas** URLs públicas.
