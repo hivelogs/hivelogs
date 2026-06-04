@@ -3,8 +3,7 @@ techspec: TS-002
 branch: feature/TS-002-core-domain
 ultima_atualizacao: 2026-06-04
 tasks_concluidas: [TASK-01, TASK-02, TASK-03, TASK-04, TASK-05, TASK-06, TASK-07, TASK-08]
-techspec_status: Approved
-nota_merge: Techspec permanece Approved até merge do PR; status Implemented após merge (workflow).
+techspec_status: Implemented
 ---
 
 # Shared Memory — TS-002: Core Domain

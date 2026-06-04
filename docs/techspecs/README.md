@@ -81,7 +81,7 @@ Template: [docs/templates/shared-memory-template.md](../templates/shared-memory-
 | ID | Título | Status | MVP | Branch |
 |----|--------|--------|-----|--------|
 | TS-001 | Fundação da Arquitetura Backend | Implemented | MVP 1 | `feature/TS-001-backend-architecture-foundation` |
-| TS-002 | Core Domain — Organizations, Applications and Environments | Approved | MVP 1 | `feature/TS-002-core-domain` |
+| TS-002 | Core Domain — Organizations, Applications and Environments | Implemented | MVP 1 | `feature/TS-002-core-domain` |
 
 > Atualize esta tabela ao criar ou concluir techspecs.
 

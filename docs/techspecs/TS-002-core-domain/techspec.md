@@ -1,7 +1,7 @@
 ---
 id: TS-002
 titulo: Core Domain — Organizations, Applications and Environments
-status: Approved
+status: Implemented
 mvp: MVP 1
 branch: feature/TS-002-core-domain
 planning_ref: planning.md
