@@ -106,6 +106,16 @@ Login real: **TS-006** (substitui placeholder de `/login`).
 - Endpoints ou regras de negócio duplicadas da API.
 - Processamento assíncrono ou agregações (use `apps/worker`).
 
+## Guias e skills (agentes)
+
+| Recurso | Conteúdo |
+|---------|----------|
+| [docs/guides/web-dashboard-development.md](../../docs/guides/web-dashboard-development.md) | Padrões de feature, API, rotas, formulários |
+| [docs/guides/design-handoff-pencil.md](../../docs/guides/design-handoff-pencil.md) | Pencil → React |
+| [docs/guides/api-local-development.md](../../docs/guides/api-local-development.md) | CORS, portas, env |
+| `hivelogs-web-dashboard` | Skill Cursor |
+| `hivelogs-web-design-handoff` | Skill Cursor |
+
 ## Referências
 
 - [docs/architecture.md](../../docs/architecture.md)

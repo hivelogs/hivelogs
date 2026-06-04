@@ -62,3 +62,4 @@ Documento **vivo** compartilhado entre tasks desta techspec.
 - Planning: [planning.md](./planning.md)
 - TS-003: [../TS-003-self-hosted-setup-access-model/](../TS-003-self-hosted-setup-access-model/)
 - TS-004: [../TS-004-web-app-foundation/](../TS-004-web-app-foundation/)
+- Guias derivados: [../../guides/](../../guides/) (web, API local, design handoff)

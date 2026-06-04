@@ -27,6 +27,18 @@ Grafo: `Api → IoC → Application/Infrastructure → Domain`
 - Tools MCP no `apps/api` (use `apps/mcp`)
 - Lógica de agregação pesada (use `apps/worker`)
 
+## Migrations EF
+
+- Pasta: `HiveLogs.Infrastructure/Migrations/` (`EfMigrationsDirectory` no csproj)
+- Nunca gerar em `Persistence/Migrations/`
+- Guia: [docs/guides/api-local-development.md](../../docs/guides/api-local-development.md)
+- Skill: `hivelogs-ef-migrations`
+
+## CORS (dashboard local)
+
+- Política `WebDashboard` em Development; incluir origens Vite `5173` e `5174`
+- `UseHiveLogsCors()` antes de `MapControllers`
+
 ## Testes
 
 - `tests/` espelha estrutura de `src/`; nomenclatura `*Tests.cs`

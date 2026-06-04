@@ -13,6 +13,7 @@ HiveLogs é uma plataforma open source de observabilidade e analytics self-hoste
 | [docs/architecture.md](docs/architecture.md) | Módulos, fluxos, conceitos de domínio |
 | [docs/security-model.md](docs/security-model.md) | JWT, API Keys, rate limiting |
 | [docs/roadmap.md](docs/roadmap.md) | MVP 1, 2, 3 e Future |
+| [docs/guides/](docs/guides/) | Guias operacionais (web, API local, design handoff) |
 | [docs/adr/](docs/adr/) | Decisões arquiteturais |
 | [docs/techspecs/](docs/techspecs/) | Techspecs, tasks e shared-memory por feature |
 
@@ -149,6 +150,9 @@ Invoque pelo nome (`name` no frontmatter) ou descreva o cenário.
 | `hivelogs-module-scaffold` | Novo app/package ou README de módulo |
 | `hivelogs-security-review` | Auth, chaves, ingestão, env, SDKs, PR sensível |
 | `hivelogs-mvp-scope` | Classificar feature; evitar scope creep |
+| `hivelogs-web-dashboard` | Telas em `apps/web`, API client, rotas, formulários, CORS |
+| `hivelogs-ef-migrations` | Migrations EF em `HiveLogs.Infrastructure/Migrations` |
+| `hivelogs-web-design-handoff` | Protótipo Pencil + `design.md` → React |
 
 ## Templates
 
