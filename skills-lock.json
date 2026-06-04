@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "pencil-skill": {
+      "source": "de-novo/pencil-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "3f5303433433c38948a3a4afb4ac4019413ceb275cbaacf39f3247db96a9a719"
+    }
+  }
+}
