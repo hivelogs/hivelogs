@@ -22,4 +22,6 @@ internal sealed class InMemoryOrganizationRepository : IOrganizationRepository
         _organizations.Add(organization);
         return Task.CompletedTask;
     }
+
+    public IReadOnlyList<Organization> Organizations => _organizations;
 }
