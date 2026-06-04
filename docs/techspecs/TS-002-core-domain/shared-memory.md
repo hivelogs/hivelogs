@@ -1,7 +1,7 @@
 ---
 techspec: TS-002
 branch: feature/TS-002-core-domain
-ultima_atualizacao: 2026-06-02
+ultima_atualizacao: 2026-06-04
 tasks_concluidas: [TASK-01, TASK-02, TASK-03, TASK-04, TASK-05, TASK-06, TASK-07, TASK-08]
 techspec_status: Approved
 nota_merge: Techspec permanece Approved até merge do PR; status Implemented após merge (workflow).
@@ -15,10 +15,11 @@ Documento **vivo** compartilhado entre tasks desta techspec.
 
 - **MonitoredApplication:** entidade em `HiveLogs.Domain.Applications`; rotas/DTOs usam Application. Ver [ADR 004](../../adr/004-core-domain-monitored-application.md).
 - **Endpoints:** 9 REST aninhados (3 por recurso: POST create, GET list, GET by id); sem autenticação; erros via `Result` + ProblemDetails (`organizations.*`, `applications.*`, `environments.*`).
-- **Unicidade de nomes:** `organizations` e `applications` — case-insensitive via coluna computada `name_lower` (`lower(name)`, stored) + índice único; `environments` — nome normalizado no domínio (lowercase) + UX `(application_id, name)`.
+- **Queries EF:** org/app usam shadow `NameLower` via `EF.Property<string>(..., "NameLower")`; environment compara `e.Name == environmentName` (value conversion EF). InMemory sincroniza `NameLower` via `NameLowerSynchronizationInterceptor` (colunas computadas não existem no provider InMemory).
 - **Rotas aninhadas:** services validam vínculo org ↔ app ↔ env antes de operar no filho.
 - **Repositórios:** implementação EF `internal` com `InternalsVisibleTo` para `HiveLogs.Infrastructure.Tests`.
-- **Testes InMemory:** `HiveLogs.Api.Tests` usa `Testing:UseInMemoryDatabase` no `WebApplicationFactory`; `HiveLogs.Application.Tests` usa repositórios in-memory em `TestDoubles/`; integração de persistência real em `CoreDomainPersistenceTests` (Postgres local, senha default `hivelogs` do compose).
+- **Testes padrão (InMemory):** `dotnet test` não exige PostgreSQL local. `HiveLogs.Api.Tests` usa `Testing:UseInMemoryDatabase` no `WebApplicationFactory`; `HiveLogs.Application.Tests` usa repositórios in-memory em `TestDoubles/`.
+- **Testes de integração (opt-in):** `CoreDomainPersistenceTests` em `Integration/` marcado com `[Trait("Category", "Integration")]`; excluído do run padrão via `apps/api/test.runsettings`; executar com `dotnet test --settings test.integration.runsettings --filter "Category=Integration"`. Requer Postgres local (senha default `hivelogs` do compose). Testcontainers pode ser avaliado futuramente, mas não é obrigatório no CI padrão.
 - **IoC / grafo:** `HiveLogs.Api.csproj` referencia somente `HiveLogs.IoC` (ADR 003); controllers usam tipos de `HiveLogs.Application` via referência transitiva de compilação. `CompositionRootTests` valida `AddHiveLogsDependencies` (3 services + 3 repos).
 
 ## Contratos e tipos alterados
@@ -55,7 +56,7 @@ Documento **vivo** compartilhado entre tasks desta techspec.
 
 - `Environment` no Domain pode exigir namespace qualificado onde coexistir com tipos ASP.NET.
 - Duplicata de nome de org/app é 409 (comparação via `name_lower`); environment inválido no body → 400.
-- Testes de API não exigem Postgres; testes de Infrastructure com Postgres precisam do container.
+- Testes de API não exigem Postgres; testes de integração (`Category=Integration`) são opt-in e exigem container local.
 
 ## Links
 

@@ -13,7 +13,8 @@ internal sealed class ApplicationRepository(HiveLogsDbContext dbContext) : IAppl
     {
         var normalized = name.Trim().ToLowerInvariant();
         return dbContext.Applications.AnyAsync(
-            a => a.OrganizationId == organizationId && a.Name.Value.ToLower() == normalized,
+            a => a.OrganizationId == organizationId &&
+                 EF.Property<string>(a, "NameLower") == normalized,
             cancellationToken);
     }
 
@@ -33,7 +34,7 @@ internal sealed class ApplicationRepository(HiveLogsDbContext dbContext) : IAppl
         CancellationToken cancellationToken = default) =>
         await dbContext.Applications
             .Where(a => a.OrganizationId == organizationId)
-            .OrderBy(a => a.Name.Value)
+            .OrderBy(a => EF.Property<string>(a, "NameLower"))
             .ToListAsync(cancellationToken);
 
     public Task AddAsync(MonitoredApplication application, CancellationToken cancellationToken = default)

@@ -10,7 +10,7 @@ internal sealed class OrganizationRepository(HiveLogsDbContext dbContext) : IOrg
     {
         var normalized = name.Trim().ToLowerInvariant();
         return dbContext.Organizations.AnyAsync(
-            o => o.Name.Value.ToLower() == normalized,
+            o => EF.Property<string>(o, "NameLower") == normalized,
             cancellationToken);
     }
 
@@ -19,7 +19,7 @@ internal sealed class OrganizationRepository(HiveLogsDbContext dbContext) : IOrg
 
     public async Task<IReadOnlyList<Organization>> ListAsync(CancellationToken cancellationToken = default) =>
         await dbContext.Organizations
-            .OrderBy(o => o.Name.Value)
+            .OrderBy(o => EF.Property<string>(o, "NameLower"))
             .ToListAsync(cancellationToken);
 
     public Task AddAsync(Organization organization, CancellationToken cancellationToken = default)

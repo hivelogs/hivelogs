@@ -21,7 +21,8 @@ public static class DependencyInjection
                 ?? Guid.NewGuid().ToString();
 
             services.AddDbContext<HiveLogsDbContext>(options =>
-                options.UseInMemoryDatabase(databaseName));
+                options.UseInMemoryDatabase(databaseName)
+                    .AddInterceptors(new NameLowerSynchronizationInterceptor()));
         }
         else
         {

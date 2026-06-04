@@ -1,5 +1,6 @@
 using HiveLogs.Application.Abstractions.Persistence;
 using DomainEnvironment = HiveLogs.Domain.Environments.Environment;
+using HiveLogs.Domain.Environments;
 using Microsoft.EntityFrameworkCore;
 
 namespace HiveLogs.Infrastructure.Persistence.Repositories;
@@ -11,9 +12,13 @@ internal sealed class EnvironmentRepository(HiveLogsDbContext dbContext) : IEnvi
         string name,
         CancellationToken cancellationToken = default)
     {
-        var normalized = name.Trim().ToLowerInvariant();
+        var nameResult = EnvironmentName.Create(name);
+        if (nameResult.IsFailure)
+            return Task.FromResult(false);
+
+        var environmentName = nameResult.Value;
         return dbContext.Environments.AnyAsync(
-            e => e.ApplicationId == applicationId && e.Name.Value == normalized,
+            e => e.ApplicationId == applicationId && e.Name == environmentName,
             cancellationToken);
     }
 
@@ -33,7 +38,7 @@ internal sealed class EnvironmentRepository(HiveLogsDbContext dbContext) : IEnvi
         CancellationToken cancellationToken = default) =>
         await dbContext.Environments
             .Where(e => e.ApplicationId == applicationId)
-            .OrderBy(e => e.Name.Value)
+            .OrderBy(e => e.Name)
             .ToListAsync(cancellationToken);
 
     public Task AddAsync(DomainEnvironment environment, CancellationToken cancellationToken = default)

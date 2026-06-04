@@ -149,10 +149,25 @@ GET /health
 
 ## Como rodar testes
 
+O comando padrão **não exige** PostgreSQL local:
+
 ```bash
 cd apps/api
 dotnet test
 ```
+
+Os testes de API usam EF InMemory (`Testing:UseInMemoryDatabase`) para manter o ciclo de desenvolvimento rápido. Testes de integração com PostgreSQL real são **opt-in** e excluídos do run padrão via `test.runsettings`.
+
+Testes de persistência relacional real (queries EF contra PostgreSQL):
+
+```bash
+cd apps/api
+dotnet test --settings test.integration.runsettings --filter "Category=Integration"
+```
+
+Pré-requisitos para integração: TimescaleDB/Postgres em execução (`cd infra && docker compose up timescaledb -d`), credenciais padrão do compose (`hivelogs`/`hivelogs`).
+
+Testcontainers pode ser avaliado futuramente para automatizar o setup de integração, mas **não é obrigatório** no CI padrão.
 
 ## Core domain (TS-002)
 

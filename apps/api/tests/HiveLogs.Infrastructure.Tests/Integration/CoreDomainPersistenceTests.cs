@@ -8,8 +8,9 @@ using HiveLogs.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 
-namespace HiveLogs.Infrastructure.Tests;
+namespace HiveLogs.Infrastructure.Tests.Integration;
 
+[Trait("Category", "Integration")]
 public sealed class CoreDomainPersistenceTests : IAsyncLifetime
 {
     private const string ConnectionString =
@@ -33,8 +34,7 @@ public sealed class CoreDomainPersistenceTests : IAsyncLifetime
 
         _dbContext = new HiveLogsDbContext(options);
         await _dbContext.Database.MigrateAsync();
-        await _dbContext.Database.ExecuteSqlRawAsync(
-            "TRUNCATE TABLE environments, applications, organizations RESTART IDENTITY CASCADE");
+        await TruncateTablesAsync();
 
         _organizationRepository = new OrganizationRepository(_dbContext);
         _applicationRepository = new ApplicationRepository(_dbContext);
@@ -94,7 +94,114 @@ public sealed class CoreDomainPersistenceTests : IAsyncLifetime
         await act.Should().ThrowAsync<DbUpdateException>();
     }
 
-    public async Task DisposeAsync() => await _dbContext.DisposeAsync();
+    [Fact]
+    public async Task ExistsByNameAsync_ShouldMatchCaseInsensitively()
+    {
+        var organization = Organization.Create(OrganizationName.Create("Acme Corp").Value, Now).Value;
+        await _organizationRepository.AddAsync(organization);
+        await _unitOfWork.SaveChangesAsync();
+
+        var exists = await _organizationRepository.ExistsByNameAsync("acme corp");
+
+        exists.Should().BeTrue();
+    }
+
+    [Fact]
+    public async Task ExistsByNameInOrganizationAsync_ShouldMatchCaseInsensitively()
+    {
+        var organization = Organization.Create(OrganizationName.Create("Acme Corp").Value, Now).Value;
+        await _organizationRepository.AddAsync(organization);
+
+        var application = MonitoredApplication.Create(
+            organization.Id,
+            ApplicationName.Create("Web API").Value,
+            Now).Value;
+        await _applicationRepository.AddAsync(application);
+        await _unitOfWork.SaveChangesAsync();
+
+        var exists = await _applicationRepository.ExistsByNameInOrganizationAsync(
+            organization.Id,
+            "web api");
+
+        exists.Should().BeTrue();
+    }
+
+    [Fact]
+    public async Task ListAsync_ShouldOrderByNameLowerCaseInsensitively()
+    {
+        var beta = Organization.Create(OrganizationName.Create("Beta Inc").Value, Now).Value;
+        var alpha = Organization.Create(OrganizationName.Create("alpha co").Value, Now).Value;
+        var gamma = Organization.Create(OrganizationName.Create("Gamma LLC").Value, Now).Value;
+
+        await _organizationRepository.AddAsync(beta);
+        await _organizationRepository.AddAsync(alpha);
+        await _organizationRepository.AddAsync(gamma);
+        await _unitOfWork.SaveChangesAsync();
+
+        var organizations = await _organizationRepository.ListAsync();
+
+        organizations.Select(o => o.Name.Value).Should().Equal("alpha co", "Beta Inc", "Gamma LLC");
+    }
+
+    [Fact]
+    public async Task ListByOrganizationAsync_ShouldOrderByNameLowerCaseInsensitively()
+    {
+        var organization = Organization.Create(OrganizationName.Create("Acme Corp").Value, Now).Value;
+        await _organizationRepository.AddAsync(organization);
+
+        var beta = MonitoredApplication.Create(
+            organization.Id,
+            ApplicationName.Create("Beta App").Value,
+            Now).Value;
+        var alpha = MonitoredApplication.Create(
+            organization.Id,
+            ApplicationName.Create("alpha app").Value,
+            Now).Value;
+
+        await _applicationRepository.AddAsync(beta);
+        await _applicationRepository.AddAsync(alpha);
+        await _unitOfWork.SaveChangesAsync();
+
+        var applications = await _applicationRepository.ListByOrganizationAsync(organization.Id);
+
+        applications.Select(a => a.Name.Value).Should().Equal("alpha app", "Beta App");
+    }
+
+    [Fact]
+    public async Task ExistsByNameInApplicationAsync_ShouldFindPersistedEnvironment()
+    {
+        var organization = Organization.Create(OrganizationName.Create("Acme Corp").Value, Now).Value;
+        await _organizationRepository.AddAsync(organization);
+
+        var application = MonitoredApplication.Create(
+            organization.Id,
+            ApplicationName.Create("Web API").Value,
+            Now).Value;
+        await _applicationRepository.AddAsync(application);
+
+        var environment = DomainEnvironment.Create(
+            application.Id,
+            EnvironmentName.Create("production").Value,
+            Now).Value;
+        await _environmentRepository.AddAsync(environment);
+        await _unitOfWork.SaveChangesAsync();
+
+        var exists = await _environmentRepository.ExistsByNameInApplicationAsync(
+            application.Id,
+            "production");
+
+        exists.Should().BeTrue();
+    }
+
+    public async Task DisposeAsync()
+    {
+        await TruncateTablesAsync();
+        await _dbContext.DisposeAsync();
+    }
+
+    private Task TruncateTablesAsync() =>
+        _dbContext.Database.ExecuteSqlRawAsync(
+            "TRUNCATE TABLE environments, applications, organizations RESTART IDENTITY CASCADE");
 
     private static async Task EnsureDatabaseExistsAsync()
     {
