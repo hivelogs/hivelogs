@@ -55,11 +55,13 @@ flowchart TB
 
 **Responsabilidade:** Dashboard e interface de usuário.
 
-- Visualização de métricas, sessões, eventos, logs, erros e requests.
-- Gestão de organizações, aplicações, ambientes e chaves (fases futuras).
-- Autenticação via JWT emitido pela API.
+**Estado atual (TS-004):** projeto Vite + React com shell, rotas placeholder (`/`, `/setup`, `/login`, `/dashboard`), TanStack Query, React Router, `httpClient` (ky), tipos `ProblemDetails`/`ApiError` e tema dark-first (shadcn/ui). Sem login nem consumo de `/setup/*` ainda — ver Feature 005.
 
-**Entradas:** API REST/GraphQL (a definir).
+- Visualização de métricas, sessões, eventos, logs, erros e requests (fases futuras).
+- Gestão de organizações, aplicações, ambientes e chaves (fases futuras).
+- Autenticação via JWT emitido pela API (fase futura).
+
+**Entradas:** API REST (`VITE_API_BASE_URL`).
 
 **Saídas:** Interface para o usuário final.
 

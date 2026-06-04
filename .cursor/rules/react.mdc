@@ -8,11 +8,11 @@ alwaysApply: false
 
 ## Stack
 
-React, TypeScript, Vite, shadcn/ui, TanStack Query, React Hook Form, Zod.
+React, TypeScript, Vite, Tailwind CSS, shadcn/ui, TanStack Query, React Hook Form, Zod, ky, React Router.
 
 ## Segurança
 
-- `VITE_*` apenas para URLs públicas (ex: API base URL)
+- `VITE_*` apenas para URLs públicas (ex: `VITE_API_BASE_URL`)
 - Nunca Backend Secret Key, MCP Access Token ou JWT hardcoded
 
 ## Responsabilidade
@@ -22,5 +22,9 @@ React, TypeScript, Vite, shadcn/ui, TanStack Query, React Hook Form, Zod.
 
 ## Organização
 
-- Componentes em `src/components/`; páginas em `src/pages/` ou `src/routes/`
+- `src/app/` — shell, providers, router, estilos globais
+- `src/pages/` — páginas por rota/feature
+- `src/shared/api/` — httpClient, ProblemDetails, ApiError
+- `src/shared/ui/` — componentes shadcn/ui
+- `src/shared/config/` — env
 - Validação de formulários com Zod; estado servidor com TanStack Query

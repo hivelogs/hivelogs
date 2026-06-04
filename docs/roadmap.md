@@ -7,6 +7,8 @@ Este documento descreve o plano de evolução do projeto por fases. Itens marcad
 Base do sistema: autenticação, modelo de dados, ingestão e dashboard inicial.
 
 - [ ] Autenticação básica (JWT)
+- [x] Fundação do frontend (`apps/web` — Vite, React, rotas placeholder, API client base)
+- [ ] Tela funcional de setup inicial (web)
 - [x] Setup inicial self-hosted (organização + admin; sem registro público)
 - [x] Organizações
 - [x] Aplicações
