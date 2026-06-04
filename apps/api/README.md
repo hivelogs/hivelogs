@@ -196,6 +196,66 @@ dotnet ef database update \
 
 Migration: `20260602214111_InitialCoreDomain` — tabelas `organizations`, `applications`, `environments`.
 
+Migration: `20260604120000_AddSelfHostedAccessModel` — tabelas `users`, `organization_members`, `setup_state`.
+
+## Self-hosted setup (TS-003)
+
+Instalação nova começa em `SetupRequired`. O operador configura a senha de setup no ambiente e executa o setup uma única vez.
+
+| Variável / config | Uso |
+|-------------------|-----|
+| `HIVELOGS_SETUP_PASSWORD` | Senha que autoriza `POST /setup/initialize` |
+| `Setup:Password` | Equivalente em `appsettings` |
+
+> Após setup concluído, alterar a senha de setup **não** altera usuários nem organização no banco.
+
+O backend **não gera** senha temporária. O admin define `adminPassword` no body do setup; apenas o hash é persistido. Ver [ADR 005](../../docs/adr/005-self-hosted-setup-and-access-model.md).
+
+### Endpoints de setup
+
+| Método | Rota |
+|--------|------|
+| GET | `/setup/status` |
+| POST | `/setup/initialize` |
+
+**GET** `/setup/status` (público):
+
+```json
+{ "status": "SetupRequired", "setupRequired": true }
+```
+
+**POST** `/setup/initialize` — request:
+
+```json
+{
+  "setupPassword": "change-me",
+  "organizationName": "Acme Corp",
+  "adminName": "Admin",
+  "adminEmail": "admin@acme.com",
+  "adminPassword": "StrongPass123"
+}
+```
+
+Response `201 Created` (sem senhas nem hash):
+
+```json
+{
+  "setupCompleted": true,
+  "organization": { "id": "...", "name": "Acme Corp" },
+  "adminUser": {
+    "id": "...",
+    "name": "Admin",
+    "email": "admin@acme.com",
+    "role": "Admin",
+    "mustChangePassword": false
+  }
+}
+```
+
+Códigos de erro: `setup.already_completed` (409), `setup.invalid_setup_password` (401), `setup.password_not_configured` (500), `users.*` (validação/conflito).
+
+> **Autenticação JWT:** ainda não implementada. Endpoints de org/app/env e setup permanecem sem middleware de auth até a feature 004.
+
 ### Endpoints REST
 
 | Método | Rota |

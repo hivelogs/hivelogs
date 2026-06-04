@@ -204,7 +204,26 @@ Dados sensíveis (PII) devem ser evitados nos payloads; documentação futura ab
 | MCP Access Token | Ler métricas/logs/erros/requests | Ingerir dados, mutar configuração |
 | JWT de usuário | Gestão e leitura no dashboard | Ingerir dados via SDK |
 
+## Modelo self-hosted (setup inicial)
+
+O HiveLogs é **self-hosted** e **não oferece registro público** de usuários. Ver [ADR 005](./adr/005-self-hosted-setup-and-access-model.md).
+
+| Regra | Comportamento |
+|-------|----------------|
+| Cadastro público | Não existe (`POST /auth/register` não será exposto) |
+| Primeira instalação | `GET /setup/status` + `POST /setup/initialize` com senha de setup |
+| Senha de setup | `HIVELOGS_SETUP_PASSWORD` ou `Setup:Password` — autoriza apenas o setup; **não** é a senha do admin |
+| Após setup | Estado `Configured`; setup não pode ser repetido; alterar a env **não** altera o banco |
+| Senhas de usuário | Backend **nunca** gera nem retorna senha em texto; apenas hash persistido |
+| Admin inicial | Define a própria senha no setup; `MustChangePassword = false` |
+| Usuários futuros | Criados por admin (feature futura); `MustChangePassword = true` em criação/reset |
+| Reset do único admin | Fora do escopo atual — decisão futura (recovery token, CLI, etc.) |
+
+**Não logar** `setupPassword` nem `adminPassword` em requests de setup.
+
 ## JWT (usuários do dashboard)
+
+> **Status:** não implementado nesta fase. O setup inicial (TS-003) prepara usuários e membership; login/JWT é feature seguinte.
 
 Autenticação separada das API Keys:
 

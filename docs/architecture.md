@@ -40,7 +40,8 @@ flowchart TB
 - Autenticação de usuários (JWT) para o dashboard.
 - Validação e roteamento de API Keys por ambiente.
 - **Regras de negócio e validações de ingestão** (schema, metadados, normalização, limites).
-- Gestão REST de organizações, aplicações e ambientes ([TS-002](./techspecs/TS-002-core-domain/); sem autenticação ainda).
+- Gestão REST de organizações, aplicações e ambientes ([TS-002](./techspecs/TS-002-core-domain/)).
+- Setup inicial self-hosted: organização + admin + membership ([TS-003](./techspecs/TS-003-self-hosted-setup-access-model/); sem JWT/login ainda).
 
 **Entradas:** SDKs (ingestão), dashboard web (gestão e consulta), MCP (consultas read-only).
 
