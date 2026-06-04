@@ -2,7 +2,7 @@
 techspec: TS-004
 branch: feature/TS-004-web-app-foundation
 ultima_atualizacao: 2026-06-04
-tasks_concluidas: [TASK-01, TASK-02, TASK-03, TASK-04, TASK-05, TASK-06]
+tasks_concluidas: [TASK-01, TASK-02, TASK-03, TASK-04, TASK-05, TASK-06, TASK-07, TASK-08]
 techspec_status: Approved
 ---
 
@@ -24,6 +24,12 @@ techspec_status: Approved
 
 - `parseApiError` lê `code`/`traceId` no root ou em `extensions` (ASP.NET ProblemDetails)
 - `ApiError` sem parameter properties (erasableSyntaxOnly)
+
+### [TASK-08] Verificação — 2026-06-04
+
+- `npm run build`, `npm run lint` verdes
+- Dev server: rotas `/`, `/setup`, `/login`, `/dashboard` respondem (SPA)
+- ESLint: `react-refresh/only-export-components` desligado (shadcn exporta variants)
 
 - **API URL local:** `http://localhost:5054` (`VITE_API_BASE_URL`)
 - **Estrutura:** `src/app`, `src/pages`, `src/shared` (não `src/components`)

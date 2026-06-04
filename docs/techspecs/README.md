@@ -83,7 +83,7 @@ Template: [docs/templates/shared-memory-template.md](../templates/shared-memory-
 | TS-001 | Fundação da Arquitetura Backend | Implemented | MVP 1 | `feature/TS-001-backend-architecture-foundation` |
 | TS-002 | Core Domain — Organizations, Applications and Environments | Implemented | MVP 1 | `feature/TS-002-core-domain` |
 | TS-003 | Self-hosted Setup and Access Model | Implemented | MVP 1 | `feature/TS-003-self-hosted-setup-access-model` |
-| TS-004 | Web App Foundation | Approved | MVP 1 | `feature/TS-004-web-app-foundation` |
+| TS-004 | Web App Foundation | Approved (pronto para PR) | MVP 1 | `feature/TS-004-web-app-foundation` |
 
 > Atualize esta tabela ao criar ou concluir techspecs.
 
