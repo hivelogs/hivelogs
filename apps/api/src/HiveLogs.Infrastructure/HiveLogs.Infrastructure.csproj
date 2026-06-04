@@ -1,5 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <PropertyGroup>
+    <EfMigrationsDirectory>Migrations</EfMigrationsDirectory>
+  </PropertyGroup>
+
   <ItemGroup>
     <InternalsVisibleTo Include="HiveLogs.Infrastructure.Tests" />
   </ItemGroup>

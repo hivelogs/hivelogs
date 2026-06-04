@@ -8,7 +8,7 @@ Base do sistema: autenticação, modelo de dados, ingestão e dashboard inicial.
 
 - [ ] Autenticação básica (JWT)
 - [x] Fundação do frontend (`apps/web` — Vite, React, rotas placeholder, API client base)
-- [ ] Tela funcional de setup inicial (web)
+- [x] Tela funcional de setup inicial (web) — [TS-005](techspecs/TS-005-initial-setup-screen/techspec.md); login real em TS-006
 - [x] Setup inicial self-hosted (organização + admin; sem registro público)
 - [x] Organizações
 - [x] Aplicações

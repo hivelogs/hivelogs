@@ -55,7 +55,9 @@ flowchart TB
 
 **Responsabilidade:** Dashboard e interface de usuário.
 
-**Estado atual (TS-004):** projeto Vite + React com shell, rotas placeholder (`/`, `/setup`, `/login`, `/dashboard`), TanStack Query, React Router, `httpClient` (ky), tipos `ProblemDetails`/`ApiError` e tema dark-first (shadcn/ui). Sem login nem consumo de `/setup/*` ainda — ver Feature 005.
+**Estado atual (TS-004 + TS-005):** Vite + React, TanStack Query, React Router, `httpClient` (ky), `ProblemDetails`/`ApiError`, tema dark-first (shadcn/ui). Tela funcional de setup inicial (`GET/POST /setup/*`, gates de rota). Login real: TS-006.
+
+**Guias operacionais:** [docs/guides/web-dashboard-development.md](guides/web-dashboard-development.md), [docs/guides/design-handoff-pencil.md](guides/design-handoff-pencil.md).
 
 - Visualização de métricas, sessões, eventos, logs, erros e requests (fases futuras).
 - Gestão de organizações, aplicações, ambientes e chaves (fases futuras).

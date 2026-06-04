@@ -84,6 +84,7 @@ Template: [docs/templates/shared-memory-template.md](../templates/shared-memory-
 | TS-002 | Core Domain — Organizations, Applications and Environments | Implemented | MVP 1 | `feature/TS-002-core-domain` |
 | TS-003 | Self-hosted Setup and Access Model | Implemented | MVP 1 | `feature/TS-003-self-hosted-setup-access-model` |
 | TS-004 | Web App Foundation | Implemented | MVP 1 | `feature/TS-004-web-app-foundation` |
+| TS-005 | Initial Setup Screen | Implemented | MVP 1 | `feature/TS-005-initial-setup-screen` |
 
 > Atualize esta tabela ao criar ou concluir techspecs.
 

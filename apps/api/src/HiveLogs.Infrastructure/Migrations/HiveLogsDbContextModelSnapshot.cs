@@ -96,6 +96,42 @@ namespace HiveLogs.Infrastructure.Migrations
                     b.ToTable("environments", (string)null);
                 });
 
+            modelBuilder.Entity("HiveLogs.Domain.OrganizationMembers.OrganizationMember", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
+
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at");
+
+                    b.Property<Guid>("OrganizationId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("organization_id");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("character varying(32)")
+                        .HasColumnName("role");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("OrganizationId", "UserId")
+                        .IsUnique()
+                        .HasDatabaseName("ix_organization_members_org_user");
+
+                    b.ToTable("organization_members", (string)null);
+                });
+
             modelBuilder.Entity("HiveLogs.Domain.Organizations.Organization", b =>
                 {
                     b.Property<Guid>("Id")
@@ -130,40 +166,6 @@ namespace HiveLogs.Infrastructure.Migrations
                         .HasDatabaseName("ix_organizations_name_lower");
 
                     b.ToTable("organizations", (string)null);
-                });
-
-            modelBuilder.Entity("HiveLogs.Domain.OrganizationMembers.OrganizationMember", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid")
-                        .HasColumnName("id");
-
-                    b.Property<DateTimeOffset>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<Guid>("OrganizationId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("organization_id");
-
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
-                        .HasColumnName("role");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("user_id");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OrganizationId", "UserId")
-                        .IsUnique()
-                        .HasDatabaseName("ix_organization_members_org_user");
-
-                    b.ToTable("organization_members", (string)null);
                 });
 
             modelBuilder.Entity("HiveLogs.Domain.Setup.SetupState", b =>

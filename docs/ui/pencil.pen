@@ -1,0 +1,3732 @@
+{
+  "version": "2.13",
+  "children": [
+    {
+      "type": "frame",
+      "id": "zEylS",
+      "x": -164,
+      "y": -2386,
+      "name": "Login Screen",
+      "clip": true,
+      "width": 1440,
+      "height": 960,
+      "fill": "#020617",
+      "layout": "vertical",
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "VNSlw",
+          "name": "Restricted Login Panel",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#020617",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            56,
+            96
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "VE0iZ",
+              "name": "Restricted Login Stack",
+              "width": 430,
+              "fill": {
+                "type": "color",
+                "color": "#00000000",
+                "enabled": false
+              },
+              "layout": "vertical",
+              "gap": 28,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "w1Tmg",
+                  "name": "HiveLogs Logo Lockup",
+                  "fill": {
+                    "type": "color",
+                    "color": "#00000000",
+                    "enabled": false
+                  },
+                  "gap": 12,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Y6Z0N",
+                      "name": "HiveLogs Logo",
+                      "width": 44,
+                      "height": 44,
+                      "fill": {
+                        "type": "color",
+                        "color": "#00000000",
+                        "enabled": false
+                      },
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "polygon",
+                          "polygonCount": 6,
+                          "cornerRadius": 4,
+                          "id": "jwMG6",
+                          "x": 0,
+                          "y": 0,
+                          "name": "Logo Outer Hexagon",
+                          "fill": {
+                            "type": "gradient",
+                            "gradientType": "linear",
+                            "enabled": true,
+                            "rotation": 180,
+                            "size": {
+                              "height": 1
+                            },
+                            "colors": [
+                              {
+                                "color": "#22C55E",
+                                "position": 0
+                              },
+                              {
+                                "color": "#14B8A6",
+                                "position": 0.36
+                              },
+                              {
+                                "color": "#06B6D4",
+                                "position": 0.66
+                              },
+                              {
+                                "color": "#2563EB",
+                                "position": 1
+                              }
+                            ]
+                          },
+                          "width": 44,
+                          "height": 44,
+                          "effect": {
+                            "type": "shadow",
+                            "shadowType": "outer",
+                            "color": "#0891B240",
+                            "offset": {
+                              "x": 0,
+                              "y": 8
+                            },
+                            "blur": 18
+                          }
+                        },
+                        {
+                          "type": "polygon",
+                          "polygonCount": 6,
+                          "cornerRadius": 2,
+                          "id": "WVmxd",
+                          "x": 10,
+                          "y": 10,
+                          "name": "Logo Inner Hexagon",
+                          "fill": "#020617",
+                          "width": 24,
+                          "height": 24
+                        },
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 2,
+                          "id": "Nkexy",
+                          "x": 14,
+                          "y": 18,
+                          "name": "Logo Center Layer",
+                          "fill": "#67E8F9",
+                          "width": 16,
+                          "height": 4
+                        },
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 2,
+                          "id": "N1Is9W",
+                          "x": 17,
+                          "y": 24,
+                          "name": "Logo Lower Layer",
+                          "fill": "#22C55E",
+                          "width": 10,
+                          "height": 3
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "K35Ar",
+                      "name": "HiveLogs Wordmark",
+                      "fill": "#F8FAFC",
+                      "content": "HiveLogs",
+                      "fontFamily": "Geist",
+                      "fontSize": 24,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "PWDvq",
+                  "name": "Login Intro",
+                  "width": "fill_container",
+                  "fill": {
+                    "type": "color",
+                    "color": "#00000000",
+                    "enabled": false
+                  },
+                  "layout": "vertical",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "hAPS1",
+                      "name": "Login Title",
+                      "fill": "#F8FAFC",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Monitor your applications with clarity",
+                      "lineHeight": 1.16,
+                      "textAlign": "center",
+                      "fontFamily": "Geist",
+                      "fontSize": 30,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "LeLoY",
+                      "name": "Login Subtitle",
+                      "fill": "#94A3B8",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Sign in to inspect logs, metrics, events, and environment health across your applications.",
+                      "lineHeight": 1.45,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 15
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "d2pke",
+                  "name": "Login Card",
+                  "width": "fill_container",
+                  "fill": "#0F172A",
+                  "cornerRadius": 8,
+                  "stroke": "#1E3A4A",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#00000052",
+                    "offset": {
+                      "x": 0,
+                      "y": 18
+                    },
+                    "blur": 42
+                  },
+                  "layout": "vertical",
+                  "gap": 18,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "XKzqj",
+                      "name": "Validation Error",
+                      "width": "fill_container",
+                      "fill": "#2A0C14",
+                      "cornerRadius": 6,
+                      "stroke": "#7F1D1D",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "gap": 10,
+                      "padding": [
+                        10,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "IjNb1",
+                          "name": "Validation Error Icon",
+                          "width": 17,
+                          "height": 17,
+                          "icon": "circle-alert",
+                          "library": "lucide",
+                          "fill": "#F87171"
+                        },
+                        {
+                          "type": "text",
+                          "id": "XMR0R",
+                          "name": "Validation Error Text",
+                          "fill": "#FECACA",
+                          "content": "Invalid email or password.",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "KfR7C",
+                      "name": "Email Field",
+                      "width": "fill_container",
+                      "fill": {
+                        "type": "color",
+                        "color": "#00000000",
+                        "enabled": false
+                      },
+                      "layout": "vertical",
+                      "gap": 7,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "IeXrN",
+                          "name": "Email Label",
+                          "fill": "#E2E8F0",
+                          "content": "Email",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "utZfB",
+                          "name": "Email Input",
+                          "width": "fill_container",
+                          "height": 44,
+                          "fill": "#07111F",
+                          "cornerRadius": 6,
+                          "stroke": "#1D4055",
+                          "strokeWidth": 1,
+                          "strokeAlignment": "inner",
+                          "gap": 10,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "CI9Tr",
+                              "name": "Email Icon",
+                              "width": 18,
+                              "height": 18,
+                              "icon": "mail",
+                              "library": "lucide",
+                              "fill": "#38BDF8"
+                            },
+                            {
+                              "type": "text",
+                              "id": "IL6cb",
+                              "name": "Email Placeholder",
+                              "fill": "#64748B",
+                              "content": "you@organization.dev",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "rsmuX",
+                      "name": "Password Field",
+                      "width": "fill_container",
+                      "fill": {
+                        "type": "color",
+                        "color": "#00000000",
+                        "enabled": false
+                      },
+                      "layout": "vertical",
+                      "gap": 7,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "N8GBa",
+                          "name": "Password Label Row",
+                          "width": "fill_container",
+                          "fill": {
+                            "type": "color",
+                            "color": "#00000000",
+                            "enabled": false
+                          },
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "w7BXZO",
+                              "name": "Password Label",
+                              "fill": "#E2E8F0",
+                              "content": "Password",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "500"
+                            },
+                            {
+                              "type": "text",
+                              "id": "jdQKf",
+                              "name": "Forgot Password Link",
+                              "fill": "#22D3EE",
+                              "content": "Forgot password?",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "L3xazy",
+                          "name": "Password Input",
+                          "width": "fill_container",
+                          "height": 44,
+                          "fill": "#07111F",
+                          "cornerRadius": 6,
+                          "stroke": "#1D4055",
+                          "strokeWidth": 1,
+                          "strokeAlignment": "inner",
+                          "gap": 10,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "rM9iG",
+                              "name": "Password Icon",
+                              "width": 18,
+                              "height": 18,
+                              "icon": "lock-keyhole",
+                              "library": "lucide",
+                              "fill": "#38BDF8"
+                            },
+                            {
+                              "type": "text",
+                              "id": "nbrhv",
+                              "name": "Password Placeholder",
+                              "fill": "#64748B",
+                              "content": "••••••••••••",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "p4KmLM",
+                      "name": "Remember Device",
+                      "fill": {
+                        "type": "color",
+                        "color": "#00000000",
+                        "enabled": false
+                      },
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 4,
+                          "id": "Fw6td",
+                          "name": "Remember Device Checkbox",
+                          "fill": "#07111F",
+                          "width": 16,
+                          "height": 16,
+                          "stroke": "#1D4055",
+                          "strokeWidth": 1,
+                          "strokeAlignment": "inner"
+                        },
+                        {
+                          "type": "text",
+                          "id": "UCXMD",
+                          "name": "Remember Device Label",
+                          "fill": "#CBD5E1",
+                          "content": "Remember this device",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "tIKDX",
+                      "name": "Sign In Button",
+                      "width": "fill_container",
+                      "height": 46,
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 90,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "#14B8A6",
+                            "position": 0
+                          },
+                          {
+                            "color": "#06B6D4",
+                            "position": 0.52
+                          },
+                          {
+                            "color": "#2563EB",
+                            "position": 1
+                          }
+                        ]
+                      },
+                      "cornerRadius": 6,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0891B233",
+                        "offset": {
+                          "x": 0,
+                          "y": 10
+                        },
+                        "blur": 22
+                      },
+                      "gap": 8,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "NvwxG",
+                          "name": "Sign In Button Label",
+                          "fill": "#F8FAFC",
+                          "content": "Sign in",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "icon",
+                          "id": "szsBx",
+                          "name": "Sign In Arrow",
+                          "width": 18,
+                          "height": 18,
+                          "icon": "arrow-right",
+                          "library": "lucide",
+                          "fill": "#F8FAFC"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "e23qZJ",
+                      "name": "Invitation Helper Text",
+                      "fill": "#94A3B8",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Need access? Ask your HiveLogs administrator for an invitation.",
+                      "lineHeight": 1.4,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "lve05",
+                  "name": "Login Support Notes",
+                  "width": "fill_container",
+                  "fill": {
+                    "type": "color",
+                    "color": "#00000000",
+                    "enabled": false
+                  },
+                  "layout": "vertical",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "VCaae",
+                      "name": "Security Note",
+                      "fill": "#061524",
+                      "cornerRadius": 999,
+                      "stroke": "#123047",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "gap": 8,
+                      "padding": [
+                        8,
+                        12
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "D1rFqu",
+                          "name": "Security Shield Icon",
+                          "width": 15,
+                          "height": 15,
+                          "icon": "shield-check",
+                          "library": "lucide",
+                          "fill": "#22C55E"
+                        },
+                        {
+                          "type": "text",
+                          "id": "LNZDd",
+                          "name": "Security Note Text",
+                          "fill": "#CBD5E1",
+                          "content": "Self-hosted telemetry stays under your control.",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "W1iBKf",
+                      "name": "Version Label",
+                      "fill": "#64748B",
+                      "content": "v0.1.0-alpha",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "kZpjm",
+      "x": 1356,
+      "y": -2386,
+      "name": "Initial Setup Screen",
+      "clip": true,
+      "width": 1440,
+      "height": 960,
+      "fill": "#020617",
+      "layout": "vertical",
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "ldRSj",
+          "name": "Initial Setup Form Panel",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#020617",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            44,
+            96
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "RHc8Q",
+              "name": "Initial Setup Stack",
+              "width": 500,
+              "fill": {
+                "type": "color",
+                "color": "#00000000",
+                "enabled": false
+              },
+              "layout": "vertical",
+              "gap": 22,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "cWAaL",
+                  "name": "Setup HiveLogs Logo Lockup",
+                  "fill": {
+                    "type": "color",
+                    "color": "#00000000",
+                    "enabled": false
+                  },
+                  "gap": 12,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "eC5WL",
+                      "name": "Setup HiveLogs Logo",
+                      "width": 44,
+                      "height": 44,
+                      "fill": {
+                        "type": "color",
+                        "color": "#00000000",
+                        "enabled": false
+                      },
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "polygon",
+                          "polygonCount": 6,
+                          "cornerRadius": 4,
+                          "id": "RnVYY",
+                          "x": 0,
+                          "y": 0,
+                          "name": "Setup Logo Outer Hexagon",
+                          "fill": {
+                            "type": "gradient",
+                            "gradientType": "linear",
+                            "enabled": true,
+                            "rotation": 180,
+                            "size": {
+                              "height": 1
+                            },
+                            "colors": [
+                              {
+                                "color": "#22C55E",
+                                "position": 0
+                              },
+                              {
+                                "color": "#14B8A6",
+                                "position": 0.36
+                              },
+                              {
+                                "color": "#06B6D4",
+                                "position": 0.66
+                              },
+                              {
+                                "color": "#2563EB",
+                                "position": 1
+                              }
+                            ]
+                          },
+                          "width": 44,
+                          "height": 44,
+                          "effect": {
+                            "type": "shadow",
+                            "shadowType": "outer",
+                            "color": "#0891B240",
+                            "offset": {
+                              "x": 0,
+                              "y": 8
+                            },
+                            "blur": 18
+                          }
+                        },
+                        {
+                          "type": "polygon",
+                          "polygonCount": 6,
+                          "cornerRadius": 2,
+                          "id": "N7KGLP",
+                          "x": 10,
+                          "y": 10,
+                          "name": "Setup Logo Inner Hexagon",
+                          "fill": "#020617",
+                          "width": 24,
+                          "height": 24
+                        },
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 2,
+                          "id": "I42j7w",
+                          "x": 14,
+                          "y": 18,
+                          "name": "Setup Logo Center Layer",
+                          "fill": "#67E8F9",
+                          "width": 16,
+                          "height": 4
+                        },
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 2,
+                          "id": "sgbRg",
+                          "x": 17,
+                          "y": 24,
+                          "name": "Setup Logo Lower Layer",
+                          "fill": "#22C55E",
+                          "width": 10,
+                          "height": 3
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "V2IyJk",
+                      "name": "Setup HiveLogs Wordmark",
+                      "fill": "#F8FAFC",
+                      "content": "HiveLogs",
+                      "fontFamily": "Geist",
+                      "fontSize": 24,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "dRH21",
+                  "name": "Setup Intro",
+                  "width": "fill_container",
+                  "fill": {
+                    "type": "color",
+                    "color": "#00000000",
+                    "enabled": false
+                  },
+                  "layout": "vertical",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "yRyoP",
+                      "name": "Setup Title",
+                      "fill": "#F8FAFC",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Set up your HiveLogs instance",
+                      "lineHeight": 1.16,
+                      "textAlign": "center",
+                      "fontFamily": "Geist",
+                      "fontSize": 30,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "m9wDB",
+                      "name": "Setup Subtitle",
+                      "fill": "#94A3B8",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Create the first administrator account and organization for this self-hosted instance.",
+                      "lineHeight": 1.45,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 15
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "fvX9W",
+                  "name": "Initial Setup Card",
+                  "width": "fill_container",
+                  "fill": "#0F172A",
+                  "cornerRadius": 8,
+                  "stroke": "#1E3A4A",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#00000052",
+                    "offset": {
+                      "x": 0,
+                      "y": 18
+                    },
+                    "blur": 42
+                  },
+                  "layout": "vertical",
+                  "gap": 14,
+                  "padding": 22,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "P1Knev",
+                      "name": "Setup Validation Examples",
+                      "width": "fill_container",
+                      "fill": "#2A0C14",
+                      "cornerRadius": 6,
+                      "stroke": "#7F1D1D",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": [
+                        10,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "cy0jy",
+                          "name": "Validation Row",
+                          "fill": {
+                            "type": "color",
+                            "color": "#00000000",
+                            "enabled": false
+                          },
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "WhQCA",
+                              "name": "Validation Icon",
+                              "width": 14,
+                              "height": 14,
+                              "icon": "circle-alert",
+                              "library": "lucide",
+                              "fill": "#F87171"
+                            },
+                            {
+                              "type": "text",
+                              "id": "Q9xFd",
+                              "name": "Validation Message",
+                              "fill": "#FECACA",
+                              "content": "Organization name is required.",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "jQzcY",
+                          "name": "Validation Row",
+                          "fill": {
+                            "type": "color",
+                            "color": "#00000000",
+                            "enabled": false
+                          },
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "wlnCH",
+                              "name": "Validation Icon",
+                              "width": 14,
+                              "height": 14,
+                              "icon": "circle-alert",
+                              "library": "lucide",
+                              "fill": "#F87171"
+                            },
+                            {
+                              "type": "text",
+                              "id": "JZGIy",
+                              "name": "Validation Message",
+                              "fill": "#FECACA",
+                              "content": "Enter a valid email address.",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "pJr9J",
+                          "name": "Validation Row",
+                          "fill": {
+                            "type": "color",
+                            "color": "#00000000",
+                            "enabled": false
+                          },
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "ymf4A",
+                              "name": "Validation Icon",
+                              "width": 14,
+                              "height": 14,
+                              "icon": "circle-alert",
+                              "library": "lucide",
+                              "fill": "#F87171"
+                            },
+                            {
+                              "type": "text",
+                              "id": "j03Be",
+                              "name": "Validation Message",
+                              "fill": "#FECACA",
+                              "content": "Password must contain at least 8 characters.",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "cCMq9",
+                          "name": "Validation Row",
+                          "fill": {
+                            "type": "color",
+                            "color": "#00000000",
+                            "enabled": false
+                          },
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "UX0rk",
+                              "name": "Validation Icon",
+                              "width": 14,
+                              "height": 14,
+                              "icon": "circle-alert",
+                              "library": "lucide",
+                              "fill": "#F87171"
+                            },
+                            {
+                              "type": "text",
+                              "id": "Gisba",
+                              "name": "Validation Message",
+                              "fill": "#FECACA",
+                              "content": "Passwords do not match.",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "lZoh7",
+                      "name": "Organization Name Field",
+                      "width": "fill_container",
+                      "fill": {
+                        "type": "color",
+                        "color": "#00000000",
+                        "enabled": false
+                      },
+                      "layout": "vertical",
+                      "gap": 6,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "tY0zA",
+                          "name": "Organization name Label",
+                          "fill": "#E2E8F0",
+                          "content": "Organization name",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "M6aMM",
+                          "name": "Organization name Input",
+                          "width": "fill_container",
+                          "height": 40,
+                          "fill": "#07111F",
+                          "cornerRadius": 6,
+                          "stroke": "#1D4055",
+                          "strokeWidth": 1,
+                          "strokeAlignment": "inner",
+                          "gap": 10,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "jnimA",
+                              "name": "Organization name Icon",
+                              "width": 17,
+                              "height": 17,
+                              "icon": "building-2",
+                              "library": "lucide",
+                              "fill": "#38BDF8"
+                            },
+                            {
+                              "type": "text",
+                              "id": "Sh7Ec",
+                              "name": "Organization name Placeholder",
+                              "fill": "#64748B",
+                              "content": "Acme Platform",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "vwYGC",
+                      "name": "Admin Full Name Field",
+                      "width": "fill_container",
+                      "fill": {
+                        "type": "color",
+                        "color": "#00000000",
+                        "enabled": false
+                      },
+                      "layout": "vertical",
+                      "gap": 6,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "j4ppt8",
+                          "name": "Admin full name Label",
+                          "fill": "#E2E8F0",
+                          "content": "Admin full name",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "eH0VP",
+                          "name": "Admin full name Input",
+                          "width": "fill_container",
+                          "height": 40,
+                          "fill": "#07111F",
+                          "cornerRadius": 6,
+                          "stroke": "#1D4055",
+                          "strokeWidth": 1,
+                          "strokeAlignment": "inner",
+                          "gap": 10,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "JxYkW",
+                              "name": "Admin full name Icon",
+                              "width": 17,
+                              "height": 17,
+                              "icon": "user",
+                              "library": "lucide",
+                              "fill": "#38BDF8"
+                            },
+                            {
+                              "type": "text",
+                              "id": "DFe27",
+                              "name": "Admin full name Placeholder",
+                              "fill": "#64748B",
+                              "content": "Luiz Maruccio",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Nsfeo",
+                      "name": "Admin Email Field",
+                      "width": "fill_container",
+                      "fill": {
+                        "type": "color",
+                        "color": "#00000000",
+                        "enabled": false
+                      },
+                      "layout": "vertical",
+                      "gap": 6,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "U3n5Na",
+                          "name": "Admin email Label",
+                          "fill": "#E2E8F0",
+                          "content": "Admin email",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "UITz0",
+                          "name": "Admin email Input",
+                          "width": "fill_container",
+                          "height": 40,
+                          "fill": "#07111F",
+                          "cornerRadius": 6,
+                          "stroke": "#1D4055",
+                          "strokeWidth": 1,
+                          "strokeAlignment": "inner",
+                          "gap": 10,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "nm4J2",
+                              "name": "Admin email Icon",
+                              "width": 17,
+                              "height": 17,
+                              "icon": "mail",
+                              "library": "lucide",
+                              "fill": "#38BDF8"
+                            },
+                            {
+                              "type": "text",
+                              "id": "n6j34r",
+                              "name": "Admin email Placeholder",
+                              "fill": "#64748B",
+                              "content": "admin@company.dev",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "PmbO5",
+                      "name": "Password Field",
+                      "width": "fill_container",
+                      "fill": {
+                        "type": "color",
+                        "color": "#00000000",
+                        "enabled": false
+                      },
+                      "layout": "vertical",
+                      "gap": 6,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "g7mwFT",
+                          "name": "Password Label",
+                          "fill": "#E2E8F0",
+                          "content": "Password",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "jJqyQ",
+                          "name": "Password Input",
+                          "width": "fill_container",
+                          "height": 40,
+                          "fill": "#07111F",
+                          "cornerRadius": 6,
+                          "stroke": "#1D4055",
+                          "strokeWidth": 1,
+                          "strokeAlignment": "inner",
+                          "gap": 10,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "gsETj",
+                              "name": "Password Icon",
+                              "width": 17,
+                              "height": 17,
+                              "icon": "lock-keyhole",
+                              "library": "lucide",
+                              "fill": "#38BDF8"
+                            },
+                            {
+                              "type": "text",
+                              "id": "ANURK",
+                              "name": "Password Placeholder",
+                              "fill": "#64748B",
+                              "content": "••••••••",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "z5mWDn",
+                      "name": "Confirm Password Field",
+                      "width": "fill_container",
+                      "fill": {
+                        "type": "color",
+                        "color": "#00000000",
+                        "enabled": false
+                      },
+                      "layout": "vertical",
+                      "gap": 6,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "SvoBL",
+                          "name": "Confirm password Label",
+                          "fill": "#E2E8F0",
+                          "content": "Confirm password",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "eco8m",
+                          "name": "Confirm password Input",
+                          "width": "fill_container",
+                          "height": 40,
+                          "fill": "#07111F",
+                          "cornerRadius": 6,
+                          "stroke": "#1D4055",
+                          "strokeWidth": 1,
+                          "strokeAlignment": "inner",
+                          "gap": 10,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "QYQBW",
+                              "name": "Confirm password Icon",
+                              "width": 17,
+                              "height": 17,
+                              "icon": "shield-check",
+                              "library": "lucide",
+                              "fill": "#38BDF8"
+                            },
+                            {
+                              "type": "text",
+                              "id": "mkbBm",
+                              "name": "Confirm password Placeholder",
+                              "fill": "#64748B",
+                              "content": "••••••••",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "A8VUQ",
+                      "name": "Setup Actions",
+                      "width": "fill_container",
+                      "fill": {
+                        "type": "color",
+                        "color": "#00000000",
+                        "enabled": false
+                      },
+                      "layout": "vertical",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "aPKGr",
+                          "name": "Create Instance Button",
+                          "width": "fill_container",
+                          "height": 46,
+                          "fill": {
+                            "type": "gradient",
+                            "gradientType": "linear",
+                            "enabled": true,
+                            "rotation": 90,
+                            "size": {
+                              "height": 1
+                            },
+                            "colors": [
+                              {
+                                "color": "#14B8A6",
+                                "position": 0
+                              },
+                              {
+                                "color": "#06B6D4",
+                                "position": 0.52
+                              },
+                              {
+                                "color": "#2563EB",
+                                "position": 1
+                              }
+                            ]
+                          },
+                          "cornerRadius": 6,
+                          "effect": {
+                            "type": "shadow",
+                            "shadowType": "outer",
+                            "color": "#0891B233",
+                            "offset": {
+                              "x": 0,
+                              "y": 10
+                            },
+                            "blur": 22
+                          },
+                          "gap": 8,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "R2QWQ",
+                              "name": "Create Instance Button Label",
+                              "fill": "#F8FAFC",
+                              "content": "Create instance",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "icon",
+                              "id": "z2WZk",
+                              "name": "Create Instance Arrow",
+                              "width": 18,
+                              "height": 18,
+                              "icon": "arrow-right",
+                              "library": "lucide",
+                              "fill": "#F8FAFC"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "lnEzI",
+                          "name": "Back To Sign In Link",
+                          "fill": "#22D3EE",
+                          "content": "Back to sign in",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "JuRzn",
+                      "name": "Setup Security Helper",
+                      "width": "fill_container",
+                      "fill": "#061524",
+                      "cornerRadius": 6,
+                      "stroke": "#123047",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "gap": 10,
+                      "padding": [
+                        10,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "zAeFn",
+                          "name": "Setup Security Icon",
+                          "width": 16,
+                          "height": 16,
+                          "icon": "shield-check",
+                          "library": "lucide",
+                          "fill": "#22C55E"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "GHjNj",
+                          "name": "Setup Security Copy",
+                          "width": "fill_container",
+                          "fill": {
+                            "type": "color",
+                            "color": "#00000000",
+                            "enabled": false
+                          },
+                          "layout": "vertical",
+                          "gap": 4,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "v5mhiX",
+                              "name": "Registration Disabled Note",
+                              "fill": "#CBD5E1",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Public registration is disabled. New users must be invited or created by an administrator.",
+                              "lineHeight": 1.35,
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "woaea",
+                              "name": "Setup Disabled Note",
+                              "fill": "#94A3B8",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "This setup screen will be disabled after the first administrator is created.",
+                              "lineHeight": 1.35,
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "Uz6wx",
+                  "name": "Setup Version Label",
+                  "fill": "#64748B",
+                  "content": "v0.1.0-alpha",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "iVdLO",
+      "x": 2876,
+      "y": -2386,
+      "name": "Accept Invitation Screen",
+      "clip": true,
+      "width": 1440,
+      "height": 960,
+      "fill": "#020617",
+      "layout": "vertical",
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "polygon",
+          "polygonCount": 6,
+          "cornerRadius": 4,
+          "id": "SQFDo",
+          "layoutPosition": "absolute",
+          "x": 166,
+          "y": 112,
+          "name": "Subtle Hexagon Texture",
+          "fill": {
+            "type": "color",
+            "color": "#00000000",
+            "enabled": false
+          },
+          "width": 78,
+          "height": 78,
+          "stroke": "#0E749033",
+          "strokeWidth": 1,
+          "strokeAlignment": "inner"
+        },
+        {
+          "type": "polygon",
+          "polygonCount": 6,
+          "cornerRadius": 4,
+          "id": "DYsxL",
+          "layoutPosition": "absolute",
+          "x": 1180,
+          "y": 160,
+          "name": "Subtle Hexagon Texture",
+          "fill": {
+            "type": "color",
+            "color": "#00000000",
+            "enabled": false
+          },
+          "width": 108,
+          "height": 108,
+          "stroke": "#1D4ED833",
+          "strokeWidth": 1,
+          "strokeAlignment": "inner"
+        },
+        {
+          "type": "polygon",
+          "polygonCount": 6,
+          "cornerRadius": 4,
+          "id": "ecOO4",
+          "layoutPosition": "absolute",
+          "x": 1030,
+          "y": 742,
+          "name": "Subtle Hexagon Texture",
+          "fill": {
+            "type": "color",
+            "color": "#00000000",
+            "enabled": false
+          },
+          "width": 70,
+          "height": 70,
+          "stroke": "#14B8A633",
+          "strokeWidth": 1,
+          "strokeAlignment": "inner"
+        },
+        {
+          "type": "polygon",
+          "polygonCount": 6,
+          "cornerRadius": 4,
+          "id": "BSbvc",
+          "layoutPosition": "absolute",
+          "x": 244,
+          "y": 750,
+          "name": "Subtle Hexagon Texture",
+          "fill": {
+            "type": "color",
+            "color": "#00000000",
+            "enabled": false
+          },
+          "width": 96,
+          "height": 96,
+          "stroke": "#22C55E22",
+          "strokeWidth": 1,
+          "strokeAlignment": "inner"
+        },
+        {
+          "type": "frame",
+          "id": "TOlzO",
+          "name": "Accept Invitation Card",
+          "width": 520,
+          "fill": "#0F172A",
+          "cornerRadius": 10,
+          "stroke": "#1E3A4A",
+          "strokeWidth": 1,
+          "strokeAlignment": "inner",
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#00000052",
+            "offset": {
+              "x": 0,
+              "y": 18
+            },
+            "blur": 44
+          },
+          "layout": "vertical",
+          "gap": 18,
+          "padding": 28,
+          "children": [
+            {
+              "type": "frame",
+              "id": "ggjK2",
+              "name": "Accept Invitation Logo Lockup",
+              "fill": {
+                "type": "color",
+                "color": "#00000000",
+                "enabled": false
+              },
+              "gap": 12,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "s3U1L",
+                  "name": "Accept Invitation HiveLogs Logo",
+                  "width": 42,
+                  "height": 42,
+                  "fill": {
+                    "type": "color",
+                    "color": "#00000000",
+                    "enabled": false
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "polygon",
+                      "polygonCount": 6,
+                      "cornerRadius": 4,
+                      "id": "aXvkn",
+                      "x": 0,
+                      "y": 0,
+                      "name": "Accept Logo Outer Hexagon",
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 180,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "#22C55E",
+                            "position": 0
+                          },
+                          {
+                            "color": "#14B8A6",
+                            "position": 0.36
+                          },
+                          {
+                            "color": "#06B6D4",
+                            "position": 0.66
+                          },
+                          {
+                            "color": "#2563EB",
+                            "position": 1
+                          }
+                        ]
+                      },
+                      "width": 42,
+                      "height": 42,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0891B240",
+                        "offset": {
+                          "x": 0,
+                          "y": 8
+                        },
+                        "blur": 18
+                      }
+                    },
+                    {
+                      "type": "polygon",
+                      "polygonCount": 6,
+                      "cornerRadius": 2,
+                      "id": "g5CXUd",
+                      "x": 10,
+                      "y": 10,
+                      "name": "Accept Logo Inner Hexagon",
+                      "fill": "#020617",
+                      "width": 22,
+                      "height": 22
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 2,
+                      "id": "MZ1Tg",
+                      "x": 13,
+                      "y": 17,
+                      "name": "Accept Logo Center Layer",
+                      "fill": "#67E8F9",
+                      "width": 16,
+                      "height": 4
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 2,
+                      "id": "DNG5x",
+                      "x": 16,
+                      "y": 23,
+                      "name": "Accept Logo Lower Layer",
+                      "fill": "#22C55E",
+                      "width": 10,
+                      "height": 3
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "id525",
+                  "name": "Accept Invitation Wordmark",
+                  "fill": "#F8FAFC",
+                  "content": "HiveLogs",
+                  "fontFamily": "Geist",
+                  "fontSize": 23,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "kwsk6",
+              "name": "Accept Invitation Header",
+              "width": "fill_container",
+              "fill": {
+                "type": "color",
+                "color": "#00000000",
+                "enabled": false
+              },
+              "layout": "vertical",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "opa14",
+                  "name": "Accept Invitation Title",
+                  "fill": "#F8FAFC",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Accept your invitation",
+                  "lineHeight": 1.14,
+                  "textAlign": "center",
+                  "fontFamily": "Geist",
+                  "fontSize": 30,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "UFdsb",
+                  "name": "Accept Invitation Subtitle",
+                  "fill": "#94A3B8",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Activate your account to access this HiveLogs instance.",
+                  "lineHeight": 1.4,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "HOlyN",
+              "name": "Readonly Invitation Context",
+              "width": "fill_container",
+              "fill": "#07111F",
+              "cornerRadius": 8,
+              "stroke": "#1D4055",
+              "strokeWidth": 1,
+              "strokeAlignment": "inner",
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 14,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Kd7nE",
+                  "name": "Organization Context Row",
+                  "width": "fill_container",
+                  "fill": {
+                    "type": "color",
+                    "color": "#00000000",
+                    "enabled": false
+                  },
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "MjmjQ",
+                      "name": "Organization Context Label",
+                      "fill": "#94A3B8",
+                      "content": "Organization",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "CJM3A",
+                      "name": "Organization Context Value",
+                      "fill": "#E2E8F0",
+                      "content": "Acme Platform",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "xDo2Q",
+                  "name": "Invited email Context Row",
+                  "width": "fill_container",
+                  "fill": {
+                    "type": "color",
+                    "color": "#00000000",
+                    "enabled": false
+                  },
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "plVvy",
+                      "name": "Invited email Context Label",
+                      "fill": "#94A3B8",
+                      "content": "Invited email",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "zWdzl",
+                      "name": "Invited email Context Value",
+                      "fill": "#E2E8F0",
+                      "content": "luiz@company.dev",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "K3mAv",
+                  "name": "Role Context Row",
+                  "width": "fill_container",
+                  "fill": {
+                    "type": "color",
+                    "color": "#00000000",
+                    "enabled": false
+                  },
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "IJRTj",
+                      "name": "Role Context Label",
+                      "fill": "#94A3B8",
+                      "content": "Role",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "rO8Uo",
+                      "name": "Role Context Value",
+                      "fill": "#E2E8F0",
+                      "content": "Member",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "pqTqx",
+              "name": "Expired Invitation Variation",
+              "width": "fill_container",
+              "fill": "#2A0C14",
+              "cornerRadius": 6,
+              "stroke": "#7F1D1D",
+              "strokeWidth": 1,
+              "strokeAlignment": "inner",
+              "layout": "vertical",
+              "gap": 5,
+              "padding": [
+                10,
+                12
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "H7eUJ",
+                  "name": "Expired Invitation Header Row",
+                  "fill": {
+                    "type": "color",
+                    "color": "#00000000",
+                    "enabled": false
+                  },
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "V6x1Kc",
+                      "name": "Expired Invitation Icon",
+                      "width": 15,
+                      "height": 15,
+                      "icon": "circle-alert",
+                      "library": "lucide",
+                      "fill": "#F87171"
+                    },
+                    {
+                      "type": "text",
+                      "id": "eZdVg",
+                      "name": "Expired Invitation Title",
+                      "fill": "#FECACA",
+                      "content": "Invitation expired",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "wjLqs",
+                  "name": "Expired Invitation Subtitle",
+                  "fill": "#FCA5A5",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "This invitation link is no longer valid. Ask your HiveLogs administrator to send a new invitation.",
+                  "lineHeight": 1.35,
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "N77Gh",
+              "name": "Accept Invitation Form",
+              "width": "fill_container",
+              "fill": {
+                "type": "color",
+                "color": "#00000000",
+                "enabled": false
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "jDYUE",
+                  "name": "Full Name Field",
+                  "width": "fill_container",
+                  "fill": {
+                    "type": "color",
+                    "color": "#00000000",
+                    "enabled": false
+                  },
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ThLHo",
+                      "name": "Full name Label",
+                      "fill": "#E2E8F0",
+                      "content": "Full name",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "HH8lf",
+                      "name": "Full name Input",
+                      "width": "fill_container",
+                      "height": 40,
+                      "fill": "#07111F",
+                      "cornerRadius": 6,
+                      "stroke": "#14B8A6",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "gap": 10,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "V9Rz3",
+                          "name": "Full name Icon",
+                          "width": 17,
+                          "height": 17,
+                          "icon": "user",
+                          "library": "lucide",
+                          "fill": "#2DD4BF"
+                        },
+                        {
+                          "type": "text",
+                          "id": "KD1O9",
+                          "name": "Full name Placeholder",
+                          "fill": "#64748B",
+                          "content": "Luiz Maruccio",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "gKCSc",
+                  "name": "Password Field",
+                  "width": "fill_container",
+                  "fill": {
+                    "type": "color",
+                    "color": "#00000000",
+                    "enabled": false
+                  },
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "X1wkL",
+                      "name": "Password Label",
+                      "fill": "#E2E8F0",
+                      "content": "Password",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "wv8l0",
+                      "name": "Password Input",
+                      "width": "fill_container",
+                      "height": 40,
+                      "fill": "#07111F",
+                      "cornerRadius": 6,
+                      "stroke": "#1D4055",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "gap": 10,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "BDKjX",
+                          "name": "Password Icon",
+                          "width": 17,
+                          "height": 17,
+                          "icon": "lock-keyhole",
+                          "library": "lucide",
+                          "fill": "#38BDF8"
+                        },
+                        {
+                          "type": "text",
+                          "id": "wbzzn",
+                          "name": "Password Placeholder",
+                          "fill": "#64748B",
+                          "content": "••••••••",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "lXsjy",
+                      "name": "Password Error",
+                      "fill": "#F87171",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Password must contain at least 8 characters.",
+                      "lineHeight": 1.25,
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "IZU3m",
+                  "name": "Confirm Password Field",
+                  "width": "fill_container",
+                  "fill": {
+                    "type": "color",
+                    "color": "#00000000",
+                    "enabled": false
+                  },
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "D7THoP",
+                      "name": "Confirm password Label",
+                      "fill": "#E2E8F0",
+                      "content": "Confirm password",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "pncYs",
+                      "name": "Confirm password Input",
+                      "width": "fill_container",
+                      "height": 40,
+                      "fill": "#07111F",
+                      "cornerRadius": 6,
+                      "stroke": "#1D4055",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "gap": 10,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "xoE2K",
+                          "name": "Confirm password Icon",
+                          "width": 17,
+                          "height": 17,
+                          "icon": "shield-check",
+                          "library": "lucide",
+                          "fill": "#38BDF8"
+                        },
+                        {
+                          "type": "text",
+                          "id": "ytO7w",
+                          "name": "Confirm password Placeholder",
+                          "fill": "#64748B",
+                          "content": "••••••••",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "mrVhk",
+                      "name": "Confirm password Error",
+                      "fill": "#F87171",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Passwords do not match.",
+                      "lineHeight": 1.25,
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "u60J4O",
+              "name": "Invitation Status Messages",
+              "width": "fill_container",
+              "fill": {
+                "type": "color",
+                "color": "#00000000",
+                "enabled": false
+              },
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "NM0yP",
+                  "name": "Already Used Error",
+                  "width": "fill_container",
+                  "fill": "#2A0C14",
+                  "cornerRadius": 6,
+                  "stroke": "#7F1D1D",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "gap": 8,
+                  "padding": [
+                    8,
+                    10
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "rO0BW",
+                      "name": "Already Used Icon",
+                      "width": 14,
+                      "height": 14,
+                      "icon": "circle-alert",
+                      "library": "lucide",
+                      "fill": "#F87171"
+                    },
+                    {
+                      "type": "text",
+                      "id": "jlcFn",
+                      "name": "Already Used Text",
+                      "fill": "#FECACA",
+                      "content": "Invitation already used.",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Li3xG",
+                  "name": "Activated Success Message",
+                  "width": "fill_container",
+                  "fill": "#052E1B",
+                  "cornerRadius": 6,
+                  "stroke": "#166534",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "gap": 8,
+                  "padding": [
+                    8,
+                    10
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "FCOvr",
+                      "name": "Activated Success Icon",
+                      "width": 14,
+                      "height": 14,
+                      "icon": "circle-check",
+                      "library": "lucide",
+                      "fill": "#22C55E"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Z52oEu",
+                      "name": "Activated Success Text",
+                      "fill": "#BBF7D0",
+                      "content": "Account activated. You can now access the dashboard.",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "u9w9Gu",
+              "name": "Accept Invitation Actions",
+              "width": "fill_container",
+              "fill": {
+                "type": "color",
+                "color": "#00000000",
+                "enabled": false
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "NxtiO",
+                  "name": "Activate Account Button",
+                  "width": "fill_container",
+                  "height": 46,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 90,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "#14B8A6",
+                        "position": 0
+                      },
+                      {
+                        "color": "#06B6D4",
+                        "position": 0.52
+                      },
+                      {
+                        "color": "#2563EB",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 6,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#0891B233",
+                    "offset": {
+                      "x": 0,
+                      "y": 10
+                    },
+                    "blur": 22
+                  },
+                  "gap": 8,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "MpQFx",
+                      "name": "Activate Account Button Label",
+                      "fill": "#F8FAFC",
+                      "content": "Activate account",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "SzGNc",
+                      "name": "Activate Account Arrow",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "arrow-right",
+                      "library": "lucide",
+                      "fill": "#F8FAFC"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "l5RK6c",
+                  "name": "Back To Sign In Link",
+                  "fill": "#22D3EE",
+                  "content": "Back to sign in",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Qcmgc",
+              "name": "Invitation Helper Note",
+              "width": "fill_container",
+              "fill": "#061524",
+              "cornerRadius": 999,
+              "stroke": "#123047",
+              "strokeWidth": 1,
+              "strokeAlignment": "inner",
+              "gap": 8,
+              "padding": [
+                8,
+                12
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "lS606",
+                  "name": "Invitation Helper Icon",
+                  "width": 15,
+                  "height": 15,
+                  "icon": "shield-check",
+                  "library": "lucide",
+                  "fill": "#22C55E"
+                },
+                {
+                  "type": "text",
+                  "id": "izY4r",
+                  "name": "Invitation Helper Text",
+                  "fill": "#CBD5E1",
+                  "content": "This invitation can only be used once.",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "wimPP",
+          "name": "Accept Invitation Version",
+          "fill": "#64748B",
+          "content": "v0.1.0-alpha",
+          "fontFamily": "IBM Plex Mono",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "c5J2KD",
+      "x": 4396,
+      "y": -2386,
+      "name": "Forgot Password Screen",
+      "clip": true,
+      "width": 1440,
+      "height": 960,
+      "fill": "#020617",
+      "layout": "vertical",
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "polygon",
+          "polygonCount": 6,
+          "cornerRadius": 4,
+          "id": "TTZOU",
+          "layoutPosition": "absolute",
+          "x": 190,
+          "y": 150,
+          "name": "Forgot Password Hexagon Texture",
+          "fill": {
+            "type": "color",
+            "color": "#00000000",
+            "enabled": false
+          },
+          "width": 82,
+          "height": 82,
+          "stroke": "#0E749033",
+          "strokeWidth": 1,
+          "strokeAlignment": "inner"
+        },
+        {
+          "type": "polygon",
+          "polygonCount": 6,
+          "cornerRadius": 4,
+          "id": "u3YVA",
+          "layoutPosition": "absolute",
+          "x": 1160,
+          "y": 180,
+          "name": "Forgot Password Hexagon Texture",
+          "fill": {
+            "type": "color",
+            "color": "#00000000",
+            "enabled": false
+          },
+          "width": 104,
+          "height": 104,
+          "stroke": "#1D4ED833",
+          "strokeWidth": 1,
+          "strokeAlignment": "inner"
+        },
+        {
+          "type": "polygon",
+          "polygonCount": 6,
+          "cornerRadius": 4,
+          "id": "kACyx",
+          "layoutPosition": "absolute",
+          "x": 1060,
+          "y": 728,
+          "name": "Forgot Password Hexagon Texture",
+          "fill": {
+            "type": "color",
+            "color": "#00000000",
+            "enabled": false
+          },
+          "width": 74,
+          "height": 74,
+          "stroke": "#14B8A633",
+          "strokeWidth": 1,
+          "strokeAlignment": "inner"
+        },
+        {
+          "type": "polygon",
+          "polygonCount": 6,
+          "cornerRadius": 4,
+          "id": "qyQ40",
+          "layoutPosition": "absolute",
+          "x": 270,
+          "y": 730,
+          "name": "Forgot Password Hexagon Texture",
+          "fill": {
+            "type": "color",
+            "color": "#00000000",
+            "enabled": false
+          },
+          "width": 92,
+          "height": 92,
+          "stroke": "#22C55E22",
+          "strokeWidth": 1,
+          "strokeAlignment": "inner"
+        },
+        {
+          "type": "frame",
+          "id": "g1DlTd",
+          "name": "Forgot Password Card",
+          "width": 460,
+          "fill": "#0F172A",
+          "cornerRadius": 10,
+          "stroke": "#1E3A4A",
+          "strokeWidth": 1,
+          "strokeAlignment": "inner",
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#00000052",
+            "offset": {
+              "x": 0,
+              "y": 18
+            },
+            "blur": 44
+          },
+          "layout": "vertical",
+          "gap": 18,
+          "padding": 28,
+          "children": [
+            {
+              "type": "frame",
+              "id": "XOnCM",
+              "name": "Forgot Password Logo Lockup",
+              "fill": {
+                "type": "color",
+                "color": "#00000000",
+                "enabled": false
+              },
+              "gap": 12,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "uKrbr",
+                  "name": "Forgot Password HiveLogs Logo",
+                  "width": 42,
+                  "height": 42,
+                  "fill": {
+                    "type": "color",
+                    "color": "#00000000",
+                    "enabled": false
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "polygon",
+                      "polygonCount": 6,
+                      "cornerRadius": 4,
+                      "id": "VZ0Ut",
+                      "x": 0,
+                      "y": 0,
+                      "name": "Forgot Logo Outer Hexagon",
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 180,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "#22C55E",
+                            "position": 0
+                          },
+                          {
+                            "color": "#14B8A6",
+                            "position": 0.36
+                          },
+                          {
+                            "color": "#06B6D4",
+                            "position": 0.66
+                          },
+                          {
+                            "color": "#2563EB",
+                            "position": 1
+                          }
+                        ]
+                      },
+                      "width": 42,
+                      "height": 42,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0891B240",
+                        "offset": {
+                          "x": 0,
+                          "y": 8
+                        },
+                        "blur": 18
+                      }
+                    },
+                    {
+                      "type": "polygon",
+                      "polygonCount": 6,
+                      "cornerRadius": 2,
+                      "id": "qLs02",
+                      "x": 10,
+                      "y": 10,
+                      "name": "Forgot Logo Inner Hexagon",
+                      "fill": "#020617",
+                      "width": 22,
+                      "height": 22
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 2,
+                      "id": "h4ChPl",
+                      "x": 13,
+                      "y": 17,
+                      "name": "Forgot Logo Center Layer",
+                      "fill": "#67E8F9",
+                      "width": 16,
+                      "height": 4
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 2,
+                      "id": "GkblO",
+                      "x": 16,
+                      "y": 23,
+                      "name": "Forgot Logo Lower Layer",
+                      "fill": "#22C55E",
+                      "width": 10,
+                      "height": 3
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "zWiED",
+                  "name": "Forgot Password Wordmark",
+                  "fill": "#F8FAFC",
+                  "content": "HiveLogs",
+                  "fontFamily": "Geist",
+                  "fontSize": 23,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ugXfR",
+              "name": "Forgot Password Header",
+              "width": "fill_container",
+              "fill": {
+                "type": "color",
+                "color": "#00000000",
+                "enabled": false
+              },
+              "layout": "vertical",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "qaqKU",
+                  "name": "Forgot Password Title",
+                  "fill": "#F8FAFC",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Reset your password",
+                  "lineHeight": 1.14,
+                  "textAlign": "center",
+                  "fontFamily": "Geist",
+                  "fontSize": 30,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "UMO3U",
+                  "name": "Forgot Password Subtitle",
+                  "fill": "#94A3B8",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Enter your email and we’ll send recovery instructions.",
+                  "lineHeight": 1.4,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "bIAaw",
+              "name": "Password Recovery Form",
+              "width": "fill_container",
+              "fill": {
+                "type": "color",
+                "color": "#00000000",
+                "enabled": false
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "iaUV0",
+                  "name": "Recovery Email Field",
+                  "width": "fill_container",
+                  "fill": {
+                    "type": "color",
+                    "color": "#00000000",
+                    "enabled": false
+                  },
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "i7VnT",
+                      "name": "Recovery Email Label",
+                      "fill": "#E2E8F0",
+                      "content": "Email",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Hw55m",
+                      "name": "Recovery Email Input Focus",
+                      "width": "fill_container",
+                      "height": 42,
+                      "fill": "#07111F",
+                      "cornerRadius": 6,
+                      "stroke": "#14B8A6",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "gap": 10,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "K8Gc1x",
+                          "name": "Recovery Email Icon",
+                          "width": 17,
+                          "height": 17,
+                          "icon": "mail",
+                          "library": "lucide",
+                          "fill": "#2DD4BF"
+                        },
+                        {
+                          "type": "text",
+                          "id": "K7sOn",
+                          "name": "Recovery Email Placeholder",
+                          "fill": "#64748B",
+                          "content": "admin@company.dev",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "xSbpZ",
+                      "name": "Recovery Email Required Error",
+                      "fill": "#F87171",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Email is required.",
+                      "lineHeight": 1.25,
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "QzNQP",
+                      "name": "Recovery Email Invalid Error",
+                      "fill": "#F87171",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Enter a valid email address.",
+                      "lineHeight": 1.25,
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "JLuWE",
+              "name": "Password Recovery Success State",
+              "width": "fill_container",
+              "fill": "#052E1B",
+              "cornerRadius": 8,
+              "stroke": "#166534",
+              "strokeWidth": 1,
+              "strokeAlignment": "inner",
+              "layout": "vertical",
+              "gap": 7,
+              "padding": [
+                12,
+                14
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "kEZNE",
+                  "name": "Recovery Success Header",
+                  "fill": {
+                    "type": "color",
+                    "color": "#00000000",
+                    "enabled": false
+                  },
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "Xudq0",
+                      "name": "Recovery Success Icon",
+                      "width": 16,
+                      "height": 16,
+                      "icon": "circle-check",
+                      "library": "lucide",
+                      "fill": "#22C55E"
+                    },
+                    {
+                      "type": "text",
+                      "id": "y1UQV",
+                      "name": "Recovery Success Title",
+                      "fill": "#BBF7D0",
+                      "content": "Check your inbox",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "Z5w7xQ",
+                  "name": "Recovery Success Subtitle",
+                  "fill": "#DCFCE7",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "If this email exists, reset instructions will be sent shortly.",
+                  "lineHeight": 1.35,
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "STWRb",
+              "name": "Forgot Password Actions",
+              "width": "fill_container",
+              "fill": {
+                "type": "color",
+                "color": "#00000000",
+                "enabled": false
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "BLxXl",
+                  "name": "Send Reset Link Button",
+                  "width": "fill_container",
+                  "height": 46,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 90,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "#14B8A6",
+                        "position": 0
+                      },
+                      {
+                        "color": "#06B6D4",
+                        "position": 0.52
+                      },
+                      {
+                        "color": "#2563EB",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 6,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#0891B233",
+                    "offset": {
+                      "x": 0,
+                      "y": 10
+                    },
+                    "blur": 22
+                  },
+                  "gap": 8,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "BErZC",
+                      "name": "Send Reset Link Button Label",
+                      "fill": "#F8FAFC",
+                      "content": "Send reset link",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "D1nV46",
+                      "name": "Send Reset Link Icon",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "arrow-right",
+                      "library": "lucide",
+                      "fill": "#F8FAFC"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "I42OHp",
+                  "name": "Disabled Reset Button State",
+                  "opacity": 0.72,
+                  "width": "fill_container",
+                  "height": 40,
+                  "fill": "#162235",
+                  "cornerRadius": 6,
+                  "stroke": "#25364A",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "k7CQp",
+                      "name": "Disabled Reset Button Label",
+                      "fill": "#94A3B8",
+                      "content": "Send reset link",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "l2cRgN",
+                  "name": "Forgot Back To Sign In Link",
+                  "fill": "#22D3EE",
+                  "content": "Back to sign in",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "VYxOM",
+              "name": "Recovery Security Note",
+              "width": "fill_container",
+              "fill": "#061524",
+              "cornerRadius": 999,
+              "stroke": "#123047",
+              "strokeWidth": 1,
+              "strokeAlignment": "inner",
+              "gap": 8,
+              "padding": [
+                8,
+                12
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "F64SS",
+                  "name": "Recovery Security Icon",
+                  "width": 15,
+                  "height": 15,
+                  "icon": "shield-check",
+                  "library": "lucide",
+                  "fill": "#22C55E"
+                },
+                {
+                  "type": "text",
+                  "id": "ZuBU3",
+                  "name": "Recovery Security Text",
+                  "fill": "#CBD5E1",
+                  "content": "Recovery responses do not reveal whether an email exists.",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "OCevO",
+          "name": "Forgot Password Version",
+          "fill": "#64748B",
+          "content": "v0.1.0-alpha",
+          "fontFamily": "IBM Plex Mono",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "y8avvg",
+      "x": 5916,
+      "y": -2386,
+      "name": "Reset Password Screen",
+      "clip": true,
+      "width": 1440,
+      "height": 960,
+      "fill": "#020617",
+      "layout": "vertical",
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "polygon",
+          "polygonCount": 6,
+          "cornerRadius": 4,
+          "id": "q4gZAh",
+          "layoutPosition": "absolute",
+          "x": 188,
+          "y": 148,
+          "name": "Reset Password Hexagon Texture",
+          "fill": {
+            "type": "color",
+            "color": "#00000000",
+            "enabled": false
+          },
+          "width": 82,
+          "height": 82,
+          "stroke": "#0E749033",
+          "strokeWidth": 1,
+          "strokeAlignment": "inner"
+        },
+        {
+          "type": "polygon",
+          "polygonCount": 6,
+          "cornerRadius": 4,
+          "id": "A9TuWp",
+          "layoutPosition": "absolute",
+          "x": 1162,
+          "y": 178,
+          "name": "Reset Password Hexagon Texture",
+          "fill": {
+            "type": "color",
+            "color": "#00000000",
+            "enabled": false
+          },
+          "width": 104,
+          "height": 104,
+          "stroke": "#1D4ED833",
+          "strokeWidth": 1,
+          "strokeAlignment": "inner"
+        },
+        {
+          "type": "polygon",
+          "polygonCount": 6,
+          "cornerRadius": 4,
+          "id": "brnCo",
+          "layoutPosition": "absolute",
+          "x": 1058,
+          "y": 728,
+          "name": "Reset Password Hexagon Texture",
+          "fill": {
+            "type": "color",
+            "color": "#00000000",
+            "enabled": false
+          },
+          "width": 74,
+          "height": 74,
+          "stroke": "#14B8A633",
+          "strokeWidth": 1,
+          "strokeAlignment": "inner"
+        },
+        {
+          "type": "polygon",
+          "polygonCount": 6,
+          "cornerRadius": 4,
+          "id": "GitkR",
+          "layoutPosition": "absolute",
+          "x": 270,
+          "y": 732,
+          "name": "Reset Password Hexagon Texture",
+          "fill": {
+            "type": "color",
+            "color": "#00000000",
+            "enabled": false
+          },
+          "width": 92,
+          "height": 92,
+          "stroke": "#22C55E22",
+          "strokeWidth": 1,
+          "strokeAlignment": "inner"
+        },
+        {
+          "type": "frame",
+          "id": "U8AiA6",
+          "name": "Reset Password Card",
+          "width": 460,
+          "fill": "#0F172A",
+          "cornerRadius": 10,
+          "stroke": "#1E3A4A",
+          "strokeWidth": 1,
+          "strokeAlignment": "inner",
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#00000052",
+            "offset": {
+              "x": 0,
+              "y": 18
+            },
+            "blur": 44
+          },
+          "layout": "vertical",
+          "gap": 18,
+          "padding": 28,
+          "children": [
+            {
+              "type": "frame",
+              "id": "YW6ML",
+              "name": "Reset Password Logo Lockup",
+              "fill": {
+                "type": "color",
+                "color": "#00000000",
+                "enabled": false
+              },
+              "gap": 12,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "aN0bU",
+                  "name": "Reset Password HiveLogs Logo",
+                  "width": 42,
+                  "height": 42,
+                  "fill": {
+                    "type": "color",
+                    "color": "#00000000",
+                    "enabled": false
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "polygon",
+                      "polygonCount": 6,
+                      "cornerRadius": 4,
+                      "id": "gCMe7",
+                      "x": 0,
+                      "y": 0,
+                      "name": "Reset Logo Outer Hexagon",
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 180,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "#22C55E",
+                            "position": 0
+                          },
+                          {
+                            "color": "#14B8A6",
+                            "position": 0.36
+                          },
+                          {
+                            "color": "#06B6D4",
+                            "position": 0.66
+                          },
+                          {
+                            "color": "#2563EB",
+                            "position": 1
+                          }
+                        ]
+                      },
+                      "width": 42,
+                      "height": 42,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0891B240",
+                        "offset": {
+                          "x": 0,
+                          "y": 8
+                        },
+                        "blur": 18
+                      }
+                    },
+                    {
+                      "type": "polygon",
+                      "polygonCount": 6,
+                      "cornerRadius": 2,
+                      "id": "D9tgk",
+                      "x": 10,
+                      "y": 10,
+                      "name": "Reset Logo Inner Hexagon",
+                      "fill": "#020617",
+                      "width": 22,
+                      "height": 22
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 2,
+                      "id": "aLsus",
+                      "x": 13,
+                      "y": 17,
+                      "name": "Reset Logo Center Layer",
+                      "fill": "#67E8F9",
+                      "width": 16,
+                      "height": 4
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 2,
+                      "id": "XJWlA",
+                      "x": 16,
+                      "y": 23,
+                      "name": "Reset Logo Lower Layer",
+                      "fill": "#22C55E",
+                      "width": 10,
+                      "height": 3
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "rGThX",
+                  "name": "Reset Password Wordmark",
+                  "fill": "#F8FAFC",
+                  "content": "HiveLogs",
+                  "fontFamily": "Geist",
+                  "fontSize": 23,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "GgQfz",
+              "name": "Reset Password Header",
+              "width": "fill_container",
+              "fill": {
+                "type": "color",
+                "color": "#00000000",
+                "enabled": false
+              },
+              "layout": "vertical",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "yPC33",
+                  "name": "Reset Password Title",
+                  "fill": "#F8FAFC",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Set a new password",
+                  "lineHeight": 1.14,
+                  "textAlign": "center",
+                  "fontFamily": "Geist",
+                  "fontSize": 30,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "RzMZW",
+                  "name": "Reset Password Subtitle",
+                  "fill": "#94A3B8",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Choose a strong password for your HiveLogs account.",
+                  "lineHeight": 1.4,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "TPLMH",
+              "name": "New Password Form",
+              "width": "fill_container",
+              "fill": {
+                "type": "color",
+                "color": "#00000000",
+                "enabled": false
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Cbwj5",
+                  "name": "New Password Field",
+                  "width": "fill_container",
+                  "fill": {
+                    "type": "color",
+                    "color": "#00000000",
+                    "enabled": false
+                  },
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "tHhkZ",
+                      "name": "New password Label",
+                      "fill": "#E2E8F0",
+                      "content": "New password",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "kZOMK",
+                      "name": "New password Input",
+                      "width": "fill_container",
+                      "height": 42,
+                      "fill": "#07111F",
+                      "cornerRadius": 6,
+                      "stroke": "#14B8A6",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "gap": 10,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "fHR1g",
+                          "name": "New password Icon",
+                          "width": 17,
+                          "height": 17,
+                          "icon": "lock-keyhole",
+                          "library": "lucide",
+                          "fill": "#2DD4BF"
+                        },
+                        {
+                          "type": "text",
+                          "id": "fLag1",
+                          "name": "New password Placeholder",
+                          "fill": "#64748B",
+                          "content": "••••••••",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "gz6Zn",
+                      "name": "New password Error",
+                      "fill": "#F87171",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Password is required.",
+                      "lineHeight": 1.25,
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "RYmG6",
+                      "name": "New password Error",
+                      "fill": "#F87171",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Password must contain at least 8 characters.",
+                      "lineHeight": 1.25,
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "DW7SE",
+                  "name": "Confirm New Password Field",
+                  "width": "fill_container",
+                  "fill": {
+                    "type": "color",
+                    "color": "#00000000",
+                    "enabled": false
+                  },
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "LeRMa",
+                      "name": "Confirm new password Label",
+                      "fill": "#E2E8F0",
+                      "content": "Confirm new password",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "o11XdC",
+                      "name": "Confirm new password Input",
+                      "width": "fill_container",
+                      "height": 42,
+                      "fill": "#07111F",
+                      "cornerRadius": 6,
+                      "stroke": "#1D4055",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "gap": 10,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "uLrgI",
+                          "name": "Confirm new password Icon",
+                          "width": 17,
+                          "height": 17,
+                          "icon": "shield-check",
+                          "library": "lucide",
+                          "fill": "#38BDF8"
+                        },
+                        {
+                          "type": "text",
+                          "id": "p0Ku9",
+                          "name": "Confirm new password Placeholder",
+                          "fill": "#64748B",
+                          "content": "••••••••",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "tPjSg",
+                      "name": "Confirm new password Error",
+                      "fill": "#F87171",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Passwords do not match.",
+                      "lineHeight": 1.25,
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "H01Q8",
+              "name": "Reset Password Helper",
+              "width": "fill_container",
+              "fill": "#061524",
+              "cornerRadius": 999,
+              "stroke": "#123047",
+              "strokeWidth": 1,
+              "strokeAlignment": "inner",
+              "gap": 8,
+              "padding": [
+                8,
+                12
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "ZF13w",
+                  "name": "Reset Password Helper Icon",
+                  "width": 15,
+                  "height": 15,
+                  "icon": "shield-check",
+                  "library": "lucide",
+                  "fill": "#22C55E"
+                },
+                {
+                  "type": "text",
+                  "id": "EuVYN",
+                  "name": "Reset Password Helper Text",
+                  "fill": "#CBD5E1",
+                  "content": "Use at least 8 characters.",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "IVKxA",
+              "name": "Reset Password Actions",
+              "width": "fill_container",
+              "fill": {
+                "type": "color",
+                "color": "#00000000",
+                "enabled": false
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "wn5ee",
+                  "name": "Update Password Button",
+                  "width": "fill_container",
+                  "height": 46,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 90,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "#14B8A6",
+                        "position": 0
+                      },
+                      {
+                        "color": "#06B6D4",
+                        "position": 0.52
+                      },
+                      {
+                        "color": "#2563EB",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 6,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#0891B233",
+                    "offset": {
+                      "x": 0,
+                      "y": 10
+                    },
+                    "blur": 22
+                  },
+                  "gap": 8,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "CAiyP",
+                      "name": "Update Password Button Label",
+                      "fill": "#F8FAFC",
+                      "content": "Update password",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "V8Khxy",
+                      "name": "Update Password Icon",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "arrow-right",
+                      "library": "lucide",
+                      "fill": "#F8FAFC"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "SQvxN",
+                  "name": "Disabled Update Password Button State",
+                  "opacity": 0.72,
+                  "width": "fill_container",
+                  "height": 40,
+                  "fill": "#162235",
+                  "cornerRadius": 6,
+                  "stroke": "#25364A",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "v8aXuU",
+                      "name": "Disabled Update Password Button Label",
+                      "fill": "#94A3B8",
+                      "content": "Update password",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "aIcId",
+                  "name": "Reset Back To Sign In Link",
+                  "fill": "#22D3EE",
+                  "content": "Back to sign in",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "s7aA1X",
+          "name": "Reset Password Version",
+          "fill": "#64748B",
+          "content": "v0.1.0-alpha",
+          "fontFamily": "IBM Plex Mono",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        }
+      ]
+    }
+  ],
+  "imports": {
+    "z": "pencil:shadcn.lib.pen"
+  }
+}
