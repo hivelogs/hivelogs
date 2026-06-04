@@ -2,7 +2,7 @@
 task_id: TASK-02
 techspec: TS-005
 titulo: API setup + types + hooks
-status: Pending
+status: Done
 modulo: web
 mvp: MVP 1
 depends_on: [TASK-01]
@@ -19,6 +19,6 @@ depends_on: [TASK-01]
 
 ## Critérios de aceite
 
-- [ ] GET status e POST initialize via httpClient
-- [ ] parseApiError no POST
-- [ ] Mapa de mensagens de erro por code
+- [x] GET status e POST initialize via httpClient
+- [x] parseApiError no POST
+- [x] Mapa de mensagens de erro por code

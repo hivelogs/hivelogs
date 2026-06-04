@@ -19,6 +19,12 @@ Documento **vivo** compartilhado entre tasks desta techspec.
 - `getSetupErrorMessage` usa `instanceof ApiError`.
 - Login preserva mensagem de setup com `useState` antes de limpar query string.
 
+### [pós-TS-005] CORS e migrations — 2026-06-04
+
+- API: `AddHiveLogsCors` — origens `5173` e `5174` (Vite alternativo).
+- Migration `20260604220802_SetupAndWebLatestChanges` consolidada em `Infrastructure/Migrations/`.
+- `EfMigrationsDirectory` no csproj da Infrastructure.
+
 - Layout `/setup`: full-screen, fora do `AppLayout` header.
 - UI: inglês; CTA "Create instance" (Pencil).
 - Protótipo Pencil disponível em `docs/ui/pencil.pen` (frame `kZpjm`).

@@ -2,7 +2,7 @@
 task_id: TASK-05
 techspec: TS-005
 titulo: Login placeholder pós-setup
-status: Pending
+status: Done
 modulo: web
 mvp: MVP 1
 depends_on: [TASK-04]
@@ -16,4 +16,4 @@ depends_on: [TASK-04]
 
 ## Critérios de aceite
 
-- [ ] Mensagem "Setup completed. Login screen coming soon."
+- [x] Mensagem "Setup completed. Login screen coming soon."

@@ -2,7 +2,7 @@
 task_id: TASK-01
 techspec: TS-005
 titulo: Documentação e design assets
-status: Pending
+status: Done
 modulo: docs
 mvp: MVP 1
 depends_on: []
@@ -18,6 +18,6 @@ depends_on: []
 
 ## Critérios de aceite
 
-- [ ] Pasta TS-005 completa
-- [ ] Design assets no git
-- [ ] README índice atualizado
+- [x] Pasta TS-005 completa
+- [x] Design assets no git
+- [x] README índice atualizado

@@ -113,3 +113,4 @@ cd apps/web && npm run build && npm run lint
 | Status | Data | Notas |
 |--------|------|-------|
 | Approved | 2026-06-04 | Pronto para implementação |
+| Implemented | 2026-06-04 | Setup screen + CORS + migrations |

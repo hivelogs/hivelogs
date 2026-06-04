@@ -2,7 +2,7 @@
 task_id: TASK-03
 techspec: TS-005
 titulo: SetupBootstrap e roteamento
-status: Pending
+status: Done
 modulo: web
 mvp: MVP 1
 depends_on: [TASK-02]
@@ -18,6 +18,6 @@ depends_on: [TASK-02]
 
 ## Critérios de aceite
 
-- [ ] Loading enquanto status pendente
-- [ ] setupRequired true → rotas principais → /setup
-- [ ] setupRequired false → /setup → /login, / → /login
+- [x] Loading enquanto status pendente
+- [x] setupRequired true → rotas principais → /setup
+- [x] setupRequired false → /setup → /login, / → /login

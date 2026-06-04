@@ -5,7 +5,7 @@ mvp: MVP 1
 modulos_candidatos: [apps/web, docs]
 autor: HiveLogs
 data: 2026-06-04
-status: ReadyForTechspec
+status: Implemented
 ---
 
 # Planning — TS-005: Initial Setup Screen

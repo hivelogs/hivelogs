@@ -2,7 +2,7 @@
 task_id: TASK-04
 techspec: TS-005
 titulo: Formulário e SetupPage
-status: Pending
+status: Done
 modulo: web
 mvp: MVP 1
 depends_on: [TASK-03]
@@ -19,6 +19,6 @@ depends_on: [TASK-03]
 
 ## Critérios de aceite
 
-- [ ] Todos os campos do spec + setup password
-- [ ] Submit POST; erro não limpa form
-- [ ] Sucesso → navigate /login?setupCompleted=true
+- [x] Todos os campos do spec + setup password
+- [x] Submit POST; erro não limpa form
+- [x] Sucesso → navigate /login?setupCompleted=true

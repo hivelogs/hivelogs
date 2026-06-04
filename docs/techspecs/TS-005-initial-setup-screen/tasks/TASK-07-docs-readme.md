@@ -2,7 +2,7 @@
 task_id: TASK-07
 techspec: TS-005
 titulo: README e docs globais
-status: Pending
+status: Done
 modulo: docs
 mvp: MVP 1
 depends_on: [TASK-05]
@@ -17,4 +17,4 @@ depends_on: [TASK-05]
 
 ## Critérios de aceite
 
-- [ ] README descreve fluxo setup e TS-006
+- [x] README descreve fluxo setup e TS-006

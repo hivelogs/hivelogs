@@ -2,7 +2,7 @@
 task_id: TASK-08
 techspec: TS-005
 titulo: Verificação build e lint
-status: Pending
+status: Done
 modulo: web
 mvp: MVP 1
 depends_on: [TASK-07]
@@ -18,4 +18,4 @@ cd apps/web && npm run build && npm run lint
 
 ## Critérios de aceite
 
-- [ ] build e lint passam
+- [x] build e lint passam
