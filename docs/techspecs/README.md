@@ -81,6 +81,7 @@ Template: [docs/templates/shared-memory-template.md](../templates/shared-memory-
 | ID | Título | Status | MVP | Branch |
 |----|--------|--------|-----|--------|
 | TS-001 | Fundação da Arquitetura Backend | Implemented | MVP 1 | `feature/TS-001-backend-architecture-foundation` |
+| TS-002 | Core Domain — Organizations, Applications and Environments | Approved | MVP 1 | `feature/TS-002-core-domain` |
 
 > Atualize esta tabela ao criar ou concluir techspecs.
 
@@ -119,4 +120,6 @@ Ordem sugerida: contratos → API → SDKs (cada task atualiza `shared-memory.md
 | `hivelogs-feature-planning` | Planning + dúvidas |
 | `hivelogs-techspec` | Techspec + ADR se necessário |
 | `hivelogs-task-breakdown` | Tasks + shared-memory inicial |
+| `hivelogs-commit-workflow` | Task completa: Dev → Docs → Review → commit |
 | `hivelogs-task-implement` | Implementação, commit, memória, PR |
+| `hivelogs-agent-dev` / `hivelogs-agent-docs` / `hivelogs-agent-code-review` | Agentes especializados |

@@ -22,7 +22,20 @@ disable-model-invocation: true
 3. Confirmar tasks em `depends_on` com `status: Done`
 4. Confirmar escopo **IN** — ignorar escopo **OUT**
 
-## Implementação
+## Implementação (agentes)
+
+**Não commitar diretamente.** Usar fluxo de agentes:
+
+| Passo | Agente / skill |
+|-------|----------------|
+| 1 | `hivelogs-agent-dev` — escopo IN, testes, verificação |
+| 2 | `hivelogs-agent-docs` — `shared-memory.md`, task `Done` |
+| 3 | `hivelogs-agent-code-review` — **gate obrigatório** |
+| 4 | Commit — **somente** se review **APROVADO** |
+
+Atalho: `hivelogs-commit-workflow` executa os quatro passos.
+
+## Implementação (checklist)
 
 1. Implementar **apenas** o escopo IN da task
 2. Respeitar boundaries (`hivelogs-context`)
@@ -31,6 +44,8 @@ disable-model-invocation: true
 5. Marcar critérios de aceite
 
 ## Commit (obrigatório: 1 por task)
+
+**Pré-requisito:** Code Review Agent com veredito **APROVADO** (`hivelogs-agent-code-review`). Commit sem review é violação do workflow.
 
 ```
 feat(TS-NNN): TASK-NN título curto
@@ -76,6 +91,7 @@ Quando **todas** as tasks estiverem `Done`:
 
 ## Não fazer
 
+- `git commit` sem **Code Review APROVADO** na mesma sessão de task
 - Múltiplos commits para a mesma task (salvo correção solicitada)
 - PR antes de todas as tasks concluídas
 - Push direto em `main`

@@ -52,11 +52,14 @@ Resumo mínimo necessário para implementar **sem depender** de reler toda a tec
 # comandos ou passos manuais
 ```
 
-## Após implementar
+## Após implementar (agentes)
 
-- [ ] Atualizar [../shared-memory.md](../shared-memory.md) (decisões, contratos, gotchas)
-- [ ] Marcar `status: Done` neste arquivo
-- [ ] **Um commit** para esta task
+1. [ ] **Dev Agent** — código + testes (`hivelogs-agent-dev`)
+2. [ ] **Docs Agent** — [../shared-memory.md](../shared-memory.md) + `status: Done` (`hivelogs-agent-docs`)
+3. [ ] **Code Review Agent** — veredito **APROVADO** (`hivelogs-agent-code-review`) — **obrigatório antes do commit**
+4. [ ] **Um commit** para esta task (somente após review aprovado)
+
+Atalho: `hivelogs-commit-workflow`
 
 ### Mensagem de commit sugerida
 

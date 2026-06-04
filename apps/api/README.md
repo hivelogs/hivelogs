@@ -149,10 +149,192 @@ GET /health
 
 ## Como rodar testes
 
+O comando padrão **não exige** PostgreSQL local:
+
 ```bash
 cd apps/api
 dotnet test
 ```
+
+Os testes de API usam EF InMemory (`Testing:UseInMemoryDatabase`) para manter o ciclo de desenvolvimento rápido. Testes de integração com PostgreSQL real são **opt-in** e excluídos do run padrão via `test.runsettings`.
+
+Testes de persistência relacional real (queries EF contra PostgreSQL):
+
+```bash
+cd apps/api
+dotnet test --settings test.integration.runsettings --filter "Category=Integration"
+```
+
+Pré-requisitos para integração: TimescaleDB/Postgres em execução (`cd infra && docker compose up timescaledb -d`), credenciais padrão do compose (`hivelogs`/`hivelogs`).
+
+Testcontainers pode ser avaliado futuramente para automatizar o setup de integração, mas **não é obrigatório** no CI padrão.
+
+## Core domain (TS-002)
+
+Hierarquia de isolamento:
+
+```
+Organization
+  └── Application
+        └── Environment
+```
+
+Rotas HTTP usam **Application**; no código de domínio a entidade é **`MonitoredApplication`** (evita colisão com `HiveLogs.Application`). Ver [ADR 004](../../docs/adr/004-core-domain-monitored-application.md).
+
+> **Autenticação:** os endpoints abaixo estão **sem auth** (MVP 1 — gestão aberta até JWT/API keys em techspecs futuras).
+
+### Migrations (`InitialCoreDomain`)
+
+Pré-requisitos: TimescaleDB/Postgres em execução (`infra/docker compose up timescaledb -d`), connection string `Default` configurada, ferramenta EF instalada (`dotnet tool install -g dotnet-ef`).
+
+```bash
+cd apps/api
+dotnet ef database update \
+  --project src/HiveLogs.Infrastructure \
+  --startup-project src/HiveLogs.Api
+```
+
+Migration: `20260602214111_InitialCoreDomain` — tabelas `organizations`, `applications`, `environments`.
+
+### Endpoints REST
+
+| Método | Rota |
+|--------|------|
+| POST | `/organizations` |
+| GET | `/organizations` |
+| GET | `/organizations/{organizationId}` |
+| POST | `/organizations/{organizationId}/applications` |
+| GET | `/organizations/{organizationId}/applications` |
+| GET | `/organizations/{organizationId}/applications/{applicationId}` |
+| POST | `/organizations/{organizationId}/applications/{applicationId}/environments` |
+| GET | `/organizations/{organizationId}/applications/{applicationId}/environments` |
+| GET | `/organizations/{organizationId}/applications/{applicationId}/environments/{environmentId}` |
+
+Erros esperados retornam `application/problem+json` com `code` e `traceId` (ex.: `organizations.not_found`, `applications.name_already_exists`).
+
+#### Organizations
+
+**POST** `/organizations`
+
+Request:
+
+```json
+{ "name": "Acme Corp" }
+```
+
+Response `201 Created`:
+
+```json
+{
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "name": "Acme Corp",
+  "createdAt": "2026-06-02T12:00:00+00:00",
+  "updatedAt": "2026-06-02T12:00:00+00:00"
+}
+```
+
+**GET** `/organizations`
+
+Response `200 OK`:
+
+```json
+[
+  {
+    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "name": "Acme Corp",
+    "createdAt": "2026-06-02T12:00:00+00:00",
+    "updatedAt": "2026-06-02T12:00:00+00:00"
+  }
+]
+```
+
+**GET** `/organizations/{organizationId}`
+
+Response `200 OK`: mesmo shape do item acima.
+
+#### Applications
+
+**POST** `/organizations/{organizationId}/applications`
+
+Request:
+
+```json
+{ "name": "Loja Web" }
+```
+
+Response `201 Created`:
+
+```json
+{
+  "id": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+  "organizationId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "name": "Loja Web",
+  "createdAt": "2026-06-02T12:00:00+00:00",
+  "updatedAt": "2026-06-02T12:00:00+00:00"
+}
+```
+
+**GET** `/organizations/{organizationId}/applications`
+
+Response `200 OK`:
+
+```json
+[
+  {
+    "id": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+    "organizationId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "name": "Loja Web",
+    "createdAt": "2026-06-02T12:00:00+00:00",
+    "updatedAt": "2026-06-02T12:00:00+00:00"
+  }
+]
+```
+
+**GET** `/organizations/{organizationId}/applications/{applicationId}`
+
+Response `200 OK`: mesmo shape do item acima.
+
+#### Environments
+
+**POST** `/organizations/{organizationId}/applications/{applicationId}/environments`
+
+Request:
+
+```json
+{ "name": "production" }
+```
+
+Response `201 Created`:
+
+```json
+{
+  "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "applicationId": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+  "name": "production",
+  "createdAt": "2026-06-02T12:00:00+00:00",
+  "updatedAt": "2026-06-02T12:00:00+00:00"
+}
+```
+
+**GET** `/organizations/{organizationId}/applications/{applicationId}/environments`
+
+Response `200 OK`:
+
+```json
+[
+  {
+    "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "applicationId": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+    "name": "production",
+    "createdAt": "2026-06-02T12:00:00+00:00",
+    "updatedAt": "2026-06-02T12:00:00+00:00"
+  }
+]
+```
+
+**GET** `/organizations/{organizationId}/applications/{applicationId}/environments/{environmentId}`
+
+Response `200 OK`: mesmo shape do item acima.
 
 ## Connection string
 
@@ -183,4 +365,6 @@ Não versione secrets reais.
 - [docs/architecture.md](../../docs/architecture.md)
 - [docs/security-model.md](../../docs/security-model.md)
 - [docs/techspecs/TS-001-backend-architecture-foundation/](../../docs/techspecs/TS-001-backend-architecture-foundation/)
+- [docs/techspecs/TS-002-core-domain/](../../docs/techspecs/TS-002-core-domain/)
 - [ADR 003](../../docs/adr/003-backend-clean-architecture-and-error-model.md)
+- [ADR 004](../../docs/adr/004-core-domain-monitored-application.md)

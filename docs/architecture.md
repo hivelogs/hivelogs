@@ -40,7 +40,7 @@ flowchart TB
 - Autenticação de usuários (JWT) para o dashboard.
 - Validação e roteamento de API Keys por ambiente.
 - **Regras de negócio e validações de ingestão** (schema, metadados, normalização, limites).
-- Gestão de organizações, aplicações e ambientes (fases futuras).
+- Gestão REST de organizações, aplicações e ambientes ([TS-002](./techspecs/TS-002-core-domain/); sem autenticação ainda).
 
 **Entradas:** SDKs (ingestão), dashboard web (gestão e consulta), MCP (consultas read-only).
 
@@ -208,7 +208,7 @@ Não é necessário registrar serviços manualmente no dashboard. A mesma Backen
 
 ## Conceitos de domínio
 
-> Nota: estes são conceitos documentados. Modelos de domínio e entidades serão implementados em fases posteriores.
+**Organization**, **Application** e **Environment** estão implementados no backend (`apps/api`, [TS-002](./techspecs/TS-002-core-domain/)): entidades, repositórios, Application Services e 9 endpoints REST. A entidade C# de Application é `MonitoredApplication` ([ADR 004](./adr/004-core-domain-monitored-application.md)); rotas e JSON da API usam `application` / `applicationId`. API keys e auth por ambiente vêm em techspecs posteriores.
 
 ### Organization
 
@@ -220,7 +220,7 @@ Uma aplicação monitorada dentro de uma organização. Exemplo: "Loja Web", "AP
 
 ### Environment
 
-Instância de deploy de uma aplicação. Exemplo: `production`, `staging`, `development`. Cada ambiente tem chaves e dados separados.
+Instância de deploy de uma aplicação. Exemplo: `production`, `staging`, `development`. Cada ambiente terá chaves e dados separados quando o modelo de API Keys for implementado.
 
 ### API Keys
 
@@ -272,10 +272,14 @@ Relatórios e análises gerados por IA via MCP. Exemplos: resumo diário, detec�
 
 O repositório inclui configuração versionada para agentes de código:
 
+- [docs/agents.md](./agents.md) — **três agentes** (Dev, Docs, Code Review) e fluxo pré-commit
 - [AGENTS.md](../AGENTS.md) — índice mestre, mapa do monorepo e skills
+- [.cursor/agents/](../.cursor/agents/) — definições `@HiveLogs Dev`, `@HiveLogs Docs`, `@HiveLogs Code Review`
 - [.cursor/rules/](../.cursor/rules/) — regras automáticas por contexto
-- [.cursor/skills/](../.cursor/skills/) — workflows (ADR, segurança, escopo MVP)
+- [.cursor/skills/](../.cursor/skills/) — workflows (commit, ADR, segurança, escopo MVP)
 - [docs/templates/](./templates/) — templates de ADR, issue, PR e README de módulo
+
+**Gate de commit:** nenhum commit de task sem Code Review **APROVADO** (`hivelogs-commit-workflow`).
 
 ## Próximos passos
 

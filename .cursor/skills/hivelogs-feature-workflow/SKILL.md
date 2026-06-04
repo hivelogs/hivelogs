@@ -35,7 +35,7 @@ flowchart LR
 | 2b | ADR se decisão nova | `hivelogs-adr` | Antes de `Approved` |
 | 3 | Tasks + shared-memory | `hivelogs-task-breakdown` | Techspec `Approved` |
 | 4 | Branch `feature/TS-NNN-slug` | manual / git | — |
-| 5 | Implementar cada task | `hivelogs-task-implement` | 1 commit/task |
+| 5 | Implementar cada task | `hivelogs-commit-workflow` (Dev→Docs→Review→commit) | 1 commit/task |
 | 6 | PR único → main | `hivelogs-task-implement` | Todas tasks `Done` |
 | 7 | Status `Implemented` | após merge | — |
 
@@ -59,10 +59,18 @@ docs/techspecs/TS-NNN-slug/
 - SDKs leves; validação no backend
 - Sem push direto em `main`
 
+## Agentes por task
+
+Cada TASK-NN: **Dev → Docs → Code Review → commit** (review é gate). Ver [docs/agents.md](../../../docs/agents.md).
+
 ## Skills de apoio (invocar quando aplicável)
 
 | Skill | Quando |
 |-------|--------|
+| `hivelogs-commit-workflow` | Orquestrar task até commit aprovado |
+| `hivelogs-agent-dev` | Só implementação |
+| `hivelogs-agent-docs` | Só documentação da task |
+| `hivelogs-agent-code-review` | Gate antes do commit |
 | `hivelogs-context` | Antes de implementar |
 | `hivelogs-mvp-scope` | Classificar feature |
 | `hivelogs-security-review` | Auth, chaves, ingestão |

@@ -208,8 +208,9 @@ Module-specific guides: see README files in each `apps/` and `packages/` directo
 ## For contributors / AI agents
 
 - **[AGENTS.md](AGENTS.md)** — monorepo map, conventions, skills, and commands (PT-BR)
+- **[docs/agents.md](docs/agents.md)** — specialized agents (Dev, Docs, Code Review) and pre-commit workflow
 - **[docs/templates/](docs/templates/)** — ADR, issue, PR, and module README templates
-- **`.cursor/rules/`** and **`.cursor/skills/`** — Cursor rules and project skills (versioned with the repo)
+- **`.cursor/agents/`**, **`.cursor/rules/`**, and **`.cursor/skills/`** — Cursor agents, rules, and skills (versioned with the repo)
 
 ## Contributing
 

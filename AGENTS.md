@@ -107,6 +107,7 @@ dotnet run --project src/HiveLogs.Api
 
 | Recurso | Caminho |
 |---------|---------|
+| Agentes (Dev, Docs, Code Review) | `.cursor/agents/` — [docs/agents.md](docs/agents.md) |
 | Regras sempre ativas | `.cursor/rules/core.mdc` |
 | Regras .NET | `.cursor/rules/dotnet.mdc` |
 | Regras React | `.cursor/rules/react.mdc` |
@@ -114,12 +115,30 @@ dotnet run --project src/HiveLogs.Api
 | Skills do projeto | `.cursor/skills/` |
 | Templates | `docs/templates/` |
 
+## Agentes especializados
+
+Três agentes em [`.cursor/agents/`](.cursor/agents/) — **code review obrigatório antes de commit** de task.
+
+| Agente | Uso | Invocação |
+|--------|-----|-----------|
+| **HiveLogs Dev** | Código e testes da task | `@HiveLogs Dev` / `hivelogs-agent-dev` |
+| **HiveLogs Docs** | shared-memory, ADR, README | `@HiveLogs Docs` / `hivelogs-agent-docs` |
+| **HiveLogs Code Review** | Gate pré-commit | `@HiveLogs Code Review` / `hivelogs-agent-code-review` |
+
+Fluxo por task: **Dev → Docs → Code Review → commit** (somente se APROVADO). Orquestração: `hivelogs-commit-workflow`.
+
+Guia completo: [docs/agents.md](docs/agents.md).
+
 ## Skills do projeto
 
 Invoque pelo nome (`name` no frontmatter) ou descreva o cenário.
 
 | Skill | Use quando |
 |-------|------------|
+| `hivelogs-commit-workflow` | Fechar TASK-NN: Dev → Docs → Review → commit |
+| `hivelogs-agent-dev` | Delegar implementação ao Dev Agent |
+| `hivelogs-agent-docs` | Delegar documentação ao Docs Agent |
+| `hivelogs-agent-code-review` | Revisar diff **antes** de `git commit` |
 | `hivelogs-context` | Início de qualquer tarefa; carregar boundaries |
 | `hivelogs-feature-workflow` | Feature nova end-to-end; orquestração do fluxo |
 | `hivelogs-feature-planning` | Planejamento, dúvidas de negócio, `planning.md` |
